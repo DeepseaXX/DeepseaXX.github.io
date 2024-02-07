@@ -2,7 +2,7 @@
 title: 自己总结的好用小工具
 description: 自己总结的好用小工具，有时间会针对部分写自己的使用心得
 slug: 20240207-useful-tools
-date: 2024/02/07 11:53:00+0900
+date: 2024-02-07 11:53:00+0900
 categories:
     - EXP
 tags:

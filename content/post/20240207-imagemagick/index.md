@@ -1,7 +1,7 @@
 ---
 title: 关于使用imagemagick处理 apng png gif
 description: 使用imagemagick进行 apng png gif格式的各种转换和处理
-date: 2024/02/07 11:53:00+0900
+date: 2024-..-.. 11:53:00+0900
 slug: 20240207-imagemagick
 categories:
     - EXP
