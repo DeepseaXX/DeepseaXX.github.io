@@ -2,7 +2,7 @@
 title: Hello You
 description: Welcome to My Page
 slug: hello-you
-date: 2024-..-.. 11:09:00+0900
+date: 2024-02-07 11:09:00+0900
 image: cover.jpg
 categories:
     - Random
