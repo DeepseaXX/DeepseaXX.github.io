@@ -1,8 +1,12 @@
 ---
 title: 关于使用imagemagick处理 apng png gif
-description: 处理
+description: 使用imagemagick进行 apng png gif格式的各种转换和处理
 date: 2024/02/07 11:53:00+0900
-image: cover.jpg
+slug: 20240207-imagemagick
+categories:
+    - EXP
+tags:
+    - imagemagick
 ---
 
 从某网站上偷来的表情包默认是apng格式，想在QQ里用的话默认支持非常差，一方面iPhone发送apng图片会直接变成静态，另一方面即使是支持apng的设备，这些图片循环次数并不是无限。所以怎么都需要修改。
@@ -61,13 +65,17 @@ magick mogrify -format png -alpha remove *.png
 powershell -command "$a = Get-Clipboard;$a='"'+$a.replace('/','\')+'"'; explorer($a)"
 ```
 
-引号内部就是powershell指令，这里的示例是执行后直接在资源管理器中打开粘贴板中的文件目录。因为某些奇怪的原因用得非常多。
+引号内部替换为想执行的powershell指令即可。
+
+这里的示例是在资源管理器中打开粘贴板中的文件目录。
+
+因为某些奇怪的原因现在用得非常多。
 
 
 
 
 
-## 参考したページ
+## 参考
 
 [ImageMagick – Command-line Tools: Mogrify](https://imagemagick.org/script/mogrify.php)
 
