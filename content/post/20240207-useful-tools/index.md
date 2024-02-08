@@ -46,13 +46,13 @@ tags:
 - Text Extrator：画面文字OCR
 - Borderless Mouse：複数のパソコンを一つのマウスでコントロール
 
-[VSCode](https://code.visualstudio.com/)：多分いう必要のない、すべてのコーディングと文字ファイル処理に向いている
-[CubePDF](https://www.cube-soft.jp/cubepdf/)：無料ソフト、PDFの編集、画像からPDFの変換
-[Snipaste](https://www.snipaste.com/download.html)：スクリーンショットと編集
-	無料で商用可能なのはバージョン1
-[autohotkey](https://www.autohotkey.com/)：いくつかの動作をスクリプトとして作成、ショートキーより呼び出し可能、プログラミング能力必要
-[Quickswitch](https://github.com/gepruts/QuickSwitch/tree/main)：Libraryの機能で、ポップアップ画面で素早くフォルダー間移動
-[Everything](https://www.voidtools.com/forum/viewtopic.php?t=9787)：一瞬でファイル特定ができる
-- 1.5aのalpha版があり、新しい機能が追加されている
-[magick](https://imagemagick.org/script/download.php)：コマンドラインで画像の変換ができる
-[CopyQ](https://github.com/hluk/CopyQ)：コピーした内容の履歴が残る、アイテムを固定してダブルクリック入力ができる
+- [VSCode](https://code.visualstudio.com/)：多分いう必要のない、すべてのコーディングと文字ファイル処理に向いている
+- [CubePDF](https://www.cube-soft.jp/cubepdf/)：無料ソフト、PDFの編集、画像からPDFの変換
+- [Snipaste](https://www.snipaste.com/download.html)：スクリーンショットと編集
+- 	無料で商用可能なのはバージョン1
+- [autohotkey](https://www.autohotkey.com/)：いくつかの動作をスクリプトとして作成、ショートキーより呼び出し可能、プログラミング能力必要
+- [Quickswitch](https://github.com/gepruts/QuickSwitch/tree/main)：Libraryの機能で、ポップアップ画面で素早くフォルダー間移動
+- [Everything](https://www.voidtools.com/forum/viewtopic.php?t=9787)：一瞬でファイル特定ができる
+- - 1.5aのalpha版があり、新しい機能が追加されている
+- [magick](https://imagemagick.org/script/download.php)：コマンドラインで画像の変換ができる
+- [CopyQ](https://github.com/hluk/CopyQ)：コピーした内容の履歴が残る、アイテムを固定してダブルクリック入力ができる
