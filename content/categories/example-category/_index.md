@@ -1,6 +1,6 @@
 ---
-title: Example Category
-description: A description of this category
+title: EXP
+description: いわゆる経験値ってやつ
 image:
 
 # Badge style
