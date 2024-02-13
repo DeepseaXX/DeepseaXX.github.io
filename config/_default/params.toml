@@ -89,4 +89,5 @@ lightTheme = "noborder_light"
 darkTheme = "noborder_dark"
 reactionsEnabled = 1
 emitMetadata = 0
+lang="zh-CN"
 
