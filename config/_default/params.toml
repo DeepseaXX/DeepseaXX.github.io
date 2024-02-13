@@ -76,7 +76,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "disqus"
+provider = "giscus"
 
 [comments.disqusjs]
 shortname = ""
@@ -127,15 +127,16 @@ serverName = "cactus.chat"
 siteName = ""
 
 [comments.giscus]
-repo = ""
-repoID = ""
-category = ""
-categoryID = ""
-mapping = ""
-lightTheme = ""
-darkTheme = ""
+repo = "DeepseaXX/DeepseaXX.github.io"
+repoID = "R_kgDOLO9jqg"
+category = "Show and tell"
+categoryID = "DIC_kwDOLO9jqs4CdLAE"
+mapping = "pathname"
+lightTheme = "preferred_color_scheme"
+darkTheme = "preferred_color_scheme"
 reactionsEnabled = 1
 emitMetadata = 0
+
 
 [comments.gitalk]
 owner = ""
