@@ -132,8 +132,8 @@ repoID = "R_kgDOLO9jqg"
 category = "Show and tell"
 categoryID = "DIC_kwDOLO9jqs4CdLAE"
 mapping = "pathname"
-lightTheme = "preferred_color_scheme"
-darkTheme = "preferred_color_scheme"
+lightTheme = "noborder_light"
+darkTheme = "noborder_dark"
 reactionsEnabled = 1
 emitMetadata = 0
 
