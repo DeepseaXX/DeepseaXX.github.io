@@ -2,7 +2,7 @@
 title: Cubox免费版使用感想
 description: 一款以网页解析为主的「稍后阅读」 使用分享
 slug: 20240229-cubox
-date: 2024-02-29 09:37:00+0900
+date: 2024-03-01 10:15:00+0900
 categories:
     - EXP
 tags:
