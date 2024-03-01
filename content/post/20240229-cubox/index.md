@@ -6,7 +6,8 @@ date: 2024-03-01 10:15:00+0900
 categories:
     - EXP
 tags:
-    - Cubox, 多平台
+    - Cubox
+    - 多平台
 ---
 
 

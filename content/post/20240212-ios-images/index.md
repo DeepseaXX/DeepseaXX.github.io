@@ -6,7 +6,8 @@ date: 2024-02-12 17:00:00+0900
 categories:
     - EXP
 tags:
-    - iOS, image
+    - iOS
+    - image
 ---
 
 ## 写在前面
