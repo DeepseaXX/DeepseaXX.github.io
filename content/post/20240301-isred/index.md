@@ -1,5 +1,5 @@
 ---
-title: 如何用python判断他是个红色
+title: 关于研究如何用python判断他是个红色
 description: 遇到了一个需要在Excel表格里，判断背景色是否大概是红色的问题……
 slug: 20240301-isred
 date: 2024-03-01 11:00:00+0900
