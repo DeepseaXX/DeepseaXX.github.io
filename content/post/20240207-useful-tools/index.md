@@ -7,6 +7,15 @@ categories:
     - EXP
 tags:
     - tool
+    - PowerToys
+    - VSCode
+    - CubePDF
+    - Snipaste
+    - autohotkey
+    - Quickswitch
+    - Everything
+    - magick
+    - CopyQ
 ---
 
 ## 一覧

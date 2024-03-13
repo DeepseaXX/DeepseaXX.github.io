@@ -7,6 +7,7 @@ categories:
     - EXP
 tags:
     - imagemagick
+    - image
 ---
 
 反正就是因为某个特殊原因，获得的文件都是用pdf或tiff格式，且大部分为矢量图。

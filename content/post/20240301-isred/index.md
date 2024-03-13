@@ -9,6 +9,8 @@ tags:
   - color
   - image
   - python
+  - colorsys
+  - openpyxl
 ---
 
 ## 背景
