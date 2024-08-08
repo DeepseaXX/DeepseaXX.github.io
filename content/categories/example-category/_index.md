@@ -1,6 +1,6 @@
 ---
 title: EXP
-description: いわゆる経験値ってやつ
+description: 
 image:
 
 # Badge style
