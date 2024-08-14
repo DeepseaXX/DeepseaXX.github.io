@@ -36,7 +36,8 @@ tags:
 
 `REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1`
 
-ESXi 网页控制台没有粘贴功能（或者是我还没发现？），以及右侧 Shift 没用，需要注意。
+ESXi 网页控制台默认不开启复制粘贴功能，需要参考[这篇文章](https://blog.exsvc.cn/article/esxi-enable-clipboard-copy-paste.html)。
+以及右侧 Shift 没用，需要注意。
 
 ## Windows11 初始化
 
