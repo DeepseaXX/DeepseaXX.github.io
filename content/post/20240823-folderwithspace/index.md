@@ -80,3 +80,9 @@ tags:
 ## 罪魁祸首
 
 ~~是一款联动 CT 扫描仪的，由 Hexagon 出品的软件~~
+
+## 参考
+
+[打不开又删不掉的文件](https://edyfox.codecarver.org/html/win_illegal_filename.html)
+
+[无法删除 NTFS 文件系统上的文件 - Windows Server | Microsoft Learn](https://learn.microsoft.com/zh-cn/troubleshoot/windows-server/backup-and-storage/cannot-delete-file-folder-on-ntfs-file-system)
