@@ -1,5 +1,5 @@
 ---
-title: 最近正在使用的VSCode插件小汇总
+title: 最近正在使用的 VSCode 插件小汇总
 description: 纯总结
 slug: 20240731-vscode-extension
 date: 2024-07-31 11:53:00+0900

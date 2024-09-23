@@ -1,5 +1,5 @@
 ---
-title: 在ESXi上装Windows11
+title: 在 ESXi 上装 Windows11
 description:
 slug: 20240814-esxi-windows
 date: 2024-08-14 12:00:00+0900
