@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on DeepseaXX's Blog</title><link>https://deepseaxx.com/tags/windows/</link><description>Recent content in Windows on DeepseaXX's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 23 Aug 2024 08:53:00 +0900</lastBuildDate><atom:link href="https://deepseaxx.com/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>文件夹操作时提示找不到文件夹，文件名最后一位是空格时的对应方法</title><link>https://deepseaxx.com/p/20240823-folderwithspace/</link><pubDate>Fri, 23 Aug 2024 08:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240823-folderwithspace/</guid><description>&lt;p>不想看背景可以直接看结论。&lt;/p>
+&lt;h2 id="故事背景">故事背景
+&lt;/h2>&lt;p>那天检查科的大爷突然问我，说&lt;/p>
+&lt;blockquote>
+&lt;p>“诶！你知道那个文件夹怎么都删不掉的时候该怎么办吗？”&lt;/p>
+&lt;/blockquote>
+&lt;p>我：&lt;/p>
+&lt;blockquote>
+&lt;p>“啊？”&lt;/p>
+&lt;/blockquote>
+&lt;p>然后发现，在资源管理器界面，文件夹确实好好的在那放着，也可以访问到下级目录，但是对文件夹进行诸如移动，改名，删除之类的操作的时候，就会提示“找不到文件夹”（原文是日语，反正具体提示是啥也忘了）。访问到下级目录的内部时，内部的文件也是可以正常删除的。就这样对着文件夹结构上下其手，最终找到了真的有问题的一层。&lt;/p>
+&lt;p>一个名字类似&amp;quot;&lt;code>20240823 AAA BBB 1 &lt;/code>&amp;ldquo;的文件夹。&lt;/p>
+&lt;p>我陷入了沉思，然后再次重命名的时候，我突然发现……文件夹名的最后有一个空格！&lt;/p>
+&lt;p>在正常资源管理器界面新建文件夹时，最后一位是空格的话，应该会被某一层自动删掉这个空格。但是这个文件夹是某个软件根据固有的命名规则自动生成的，在某种因缘巧合下最后一位是空格，又因为某种阴差阳错，绕过了创建文件夹时对于命名规则的检测，所以就留下了这一坨硬岔……&lt;/p>
+&lt;p>反正问题知道了，再去特定原因就简单了。&lt;/p>
+&lt;h2 id="结论">结论
+&lt;/h2>&lt;h3 id="全路径">全路径
+&lt;/h3>&lt;p>最后一位带空格的文件/文件夹名是不合法的，通过正常的命令无法指定，所以需要特殊的方法。
+这种方法就是通过“&lt;strong>全路径&lt;/strong>”的方法，&lt;/p>
+&lt;p>如果通常情况下的绝对路径是这样的 &lt;code>C:\Program Files\Parent&lt;/code>&lt;/p>
+&lt;p>那所谓的全路径就是 &lt;code>\\?\C:\Program Files\Parent&lt;/code>&lt;/p>
+&lt;p>具体的全路径特指的是什么，有什么特征我也不知道，我也是第一次听这个概念……&lt;/p>
+&lt;p>然后我们通过全路径来指定文件夹操作，&lt;/p>
+&lt;h3 id="对单个文件">对单个文件
+&lt;/h3>&lt;p>如果是单个文件的最后一位是空格，那可以通过修改文件名的方法把它转换成正常可以操作的文件，再进行后续操作。&lt;/p>
+&lt;p>例如我要对 Parent 目录下的&lt;code>test &lt;/code>重命名为 123，则输入&lt;/p>
+&lt;p>&lt;code>ren &amp;quot;\\?\C:\Program Files\Parent\test &amp;quot; &amp;quot;123&amp;quot;&lt;/code>&lt;/p>
+&lt;h3 id="对文件夹">对文件夹
+&lt;/h3>&lt;p>如果是单个文件的最后一位是空格，那就只能把同级和下级内容物全部备份到外部，再指定它的上级文件夹循环删除所有内容。&lt;/p>
+&lt;p>例如我要删除 Parent 文件夹内部的名叫&lt;code>Test &lt;/code>文件夹，我必须对他上级的 Parent 文件夹进行删除操作，同时 Parent 文件夹也会被删除。（尝试过直接对名称错误的文件进行操作，并没能成功……）&lt;code>/s&lt;/code>是对非空文件夹操作的选项，不写会提示文件夹非空无法删除。&lt;code>/q&lt;/code>是不需要确认的选项，不输入会询问是否删除，需要手动回答（Y/N），怕误操作可以不加。&lt;/p>
+&lt;p>&lt;code>rmdir &amp;quot;\\?\C:\Program Files\Parent&amp;quot; /s /q&lt;/code>&lt;/p>
+&lt;h2 id="尝试过的其他方法">尝试过的其他方法
+&lt;/h2>&lt;h3 id="文件夹权限">文件夹权限
+&lt;/h3>&lt;p>文件夹是默认只读权限，试过修改权限也是依然无法删除。并且提示一直是“找不到文件夹”而不是权限不足之类的。&lt;/p>
+&lt;h3 id="powershellcmd-管理员强制删除">Powershell/cmd 管理员强制删除
+&lt;/h3>&lt;p>知道了真正的原因之后，回头想想，仅仅提到管理员权限，加一大堆强制的选项也是显然删不掉的啦。
+不过还是试了，万一呢。&lt;/p>
+&lt;h3 id="获取缩写名">获取缩写名
+&lt;/h3>&lt;p>另外查到通过 cmd 的&lt;code>dir /x&lt;/code>指令获得该文件夹的缩写名，并通过指定缩写名的方式特定到该文件夹，但是我输入这个指令后，缩写名是空白的，所以没成功。&lt;/p>
+&lt;h2 id="罪魁祸首">罪魁祸首
+&lt;/h2>&lt;p>&lt;del>是一款联动 CT 扫描仪的，由 Hexagon 出品的软件&lt;/del>&lt;/p>
+&lt;h2 id="参考">参考
+&lt;/h2>&lt;p>&lt;a class="link" href="https://edyfox.codecarver.org/html/win_illegal_filename.html" target="_blank" rel="noopener"
+>打不开又删不掉的文件&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://learn.microsoft.com/zh-cn/troubleshoot/windows-server/backup-and-storage/cannot-delete-file-folder-on-ntfs-file-system" target="_blank" rel="noopener"
+>无法删除 NTFS 文件系统上的文件 - Windows Server | Microsoft Learn&lt;/a>&lt;/p></description></item></channel></rss>
