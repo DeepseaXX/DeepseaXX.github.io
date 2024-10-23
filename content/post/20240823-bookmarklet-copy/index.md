@@ -2,7 +2,7 @@
 title: 在 Bookmarklet 中实现复制时
 description: 纯总结
 slug: 20240823-bookmarklet-copy
-date: 2024-08-56 16:30:00+0900
+date: 2024-08-23 16:30:00+0900
 categories:
   - EXP
 tags:
