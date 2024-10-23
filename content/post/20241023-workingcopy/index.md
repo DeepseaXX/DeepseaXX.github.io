@@ -1,6 +1,6 @@
 ---
 title: Working Copy，一个 iOS 上的 Git App
-description: 有时候会有很紧急的修正笔误的需求，靠这个完全能解决
+description: 除了编辑 Obsidian 之外，有时候紧急的修正笔误的需求，靠这个在iOS上就能即时修改。
 slug: 20241023-workingcopy
 date: 2024-10-23 11:53:00+0900
 categories:
