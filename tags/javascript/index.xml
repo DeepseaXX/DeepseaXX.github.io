@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on DeepseaXX's Blog</title><link>https://deepseaxx.com/tags/javascript/</link><description>Recent content in Javascript on DeepseaXX's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 23 Aug 2024 16:30:00 +0900</lastBuildDate><atom:link href="https://deepseaxx.com/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>在 Bookmarklet 中实现复制时</title><link>https://deepseaxx.com/p/20240823-bookmarklet-copy/</link><pubDate>Fri, 23 Aug 2024 16:30:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240823-bookmarklet-copy/</guid><description>&lt;p>以前我抄了一段代码是这样的 ↓&lt;/p>
+&lt;p>因为是 Bookmarklet 的要求，代码要写在一行里。懒得改了就凑合看看吧。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">javascript&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">let&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;C:/BoxDrive/Box/&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">dotButton&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">querySelectorAll&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;.ItemListBreadcrumb &amp;gt; button&amp;#34;&lt;/span>&lt;span class="p">)[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">];&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">dotButton&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">dotButton&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">click&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="p">[&lt;/span> &lt;span class="o">...&lt;/span>&lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">querySelectorAll&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;a[data-resin-target=&amp;#39;openfolder&amp;#39;].menu-item&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">]&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">e&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">innerText&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">filter&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">v&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="n">decodeURI&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;すべてのファイル&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">endsWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">querySelectorAll&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;.ItemListBreadcrumb-listItem&amp;#34;&lt;/span>&lt;span class="p">)]&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">v&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">innerText&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">filter&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">v&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">v&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="n">decodeURI&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;すべてのファイル&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">function&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">var&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">createElement&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;textarea&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">getSelection&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">textContent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">appendChild&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">removeAllRanges&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">execCommand&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;copy&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">removeAllRanges&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">removeChild&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="p">})(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">click&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="p">})();&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>前面的部分跟这次的主题无关，反正就是从网页的某个元素里获得每一个内容物，并依次添加到字符串中，再继续从另一个元素中获得每个内容添加到字符串里，缝合成一个可以本地访问的绝对路径。&lt;/p>
+&lt;p>然后下一步，把这个绝对路径复制到剪贴板，这段代码的实现方式是&lt;code>function (a)&lt;/code>内部，在网页上创建一个元素，通过&lt;code>document.execCommand(&amp;quot;copy&amp;quot;)&lt;/code>复制这个元素的内容，再删掉这个元素。&lt;/p>
+&lt;p>这个方法在我和大部分人的电脑上还是可行的，直到有人说，在他的电脑上 Edge 执行不了，Chrome 可以执行。&lt;/p>
+&lt;p>我开始疑惑，不知道为什么直觉告诉我可能是复制这部分实现的问题。&lt;/p>
+&lt;p>毕竟这个实现方法虽然可用，但是还是有点扭曲，虽然扭曲，但因为可以用就没管它。&lt;/p>
+&lt;p>然后我注意到 VSCode 插件告诉我这个写法现在不推荐了，那推荐的是什么呢，查了一下 ↓。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">navigator.clipboard.writeText(path);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>一行就行，不需要创建一个临时的元素曲线救国了。&lt;/p>
+&lt;p>然后我就立刻替换进去，让那个哥试试。果然解决了。&lt;/p>
+&lt;p>嘻嘻。&lt;/p></description></item><item><title>最近正在使用的 VSCode 插件小汇总</title><link>https://deepseaxx.com/p/20240731-vscode-extension/</link><pubDate>Wed, 31 Jul 2024 11:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240731-vscode-extension/</guid><description>&lt;p>因为是命令行直接导出的列表之后编辑的，一律以&lt;code>发行方.识别名&lt;/code>的格式列表。&lt;/p>
+&lt;p>有一些插件安装之后也没有仔细研究过，就用默认设置，甚至有些还没实际用到……&lt;/p>
+&lt;h2 id="列表">列表
+&lt;/h2>&lt;h3 id="常规无论什么用途都可以用到的">常规（无论什么用途都可以用到的）
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>esbenp.prettier-vscode
+Ctrl+Shift+P 进行代码格式化排列&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>azemoh.one-monokai
+类 monokai 主题里免费的，相对好看的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>oderwat.indent-rainbow
+把缩进用彩虹色显示&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>vscode-icons-team.vscode-icons
+Vscode 图表优化&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>tomoki1207.pdf
+VSCode 直接浏览 pdf 文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>brunnerh.insert-unicode
+快速输入 Unicode（emoji）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>fabiospampinato.vscode-diff
+快速对比两文件（diff）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="markdown">Markdown
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>shd101wyy.markdown-preview-enhanced
+Markdown 的预览，包含安装 Chrome 之后快速输出 pdf 格式&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>yzhang.markdown-all-in-one
+Markdown 基本常用功能汇总&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>yzane.markdown-pdf
+PDF 快速转换（用的很少也没有研究怎么自定义主题）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>csholmq.excel-to-markdown-table
+复制 Excel 格式的表格，快速转换成 Markdown 语法工具&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mdickin.markdown-shortcuts
+各种方便功能绑定快捷键（例如制表符的表格快速转化成 Markdown 语法格式）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mushan.vscode-paste-image
+把已复制图片快速保存到当前工作区的相对路径指定文件夹，并插入对应的 Markdown 格式文本&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>foam.foam-vscode
+Markdown 笔记平台，类似 VSCode 上的 Obisidian，但略显粗糙&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="特定语言工具类">特定语言/工具类
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>echatroner.rainbow-csv
+更加简洁地显示 csv&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>meowteam.vscode-math-to-image
+将 Latex 语法的数学公式转换成图片&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>visualstudioexptteam.intellicode-api-usage-examples
+在 Github 上搜索当前 API 的使用示例&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>visualstudioexptteam.vscodeintellicode
+同上（不如说是联动一体）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>wayou.vscode-todo-highlight
+把程序中备注的 TODO 进行高亮显示&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="网页系jsjsoncss">网页系（js,json,css）
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>anseki.vscode-color
+更加方便地输入颜色代码&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>bierner.color-info
+对颜色代码进行情报的补充&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>formulahendry.auto-close-tag
+HTML 自动补全 tag&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>formulahendry.auto-rename-tag
+HTML 自动重命名 tag&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>meezilla.json&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mohsen1.prettify-json&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>json 特化的格式化&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>techer.open-in-browser
+在浏览器中执行测试&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>zainchen.json&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>xabikos.javascriptsnippets&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

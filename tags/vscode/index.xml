@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VSCode on DeepseaXX's Blog</title><link>https://deepseaxx.com/tags/vscode/</link><description>Recent content in VSCode on DeepseaXX's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 31 Jul 2024 11:53:00 +0900</lastBuildDate><atom:link href="https://deepseaxx.com/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>最近正在使用的 VSCode 插件小汇总</title><link>https://deepseaxx.com/p/20240731-vscode-extension/</link><pubDate>Wed, 31 Jul 2024 11:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240731-vscode-extension/</guid><description>&lt;p>因为是命令行直接导出的列表之后编辑的，一律以&lt;code>发行方.识别名&lt;/code>的格式列表。&lt;/p>
+&lt;p>有一些插件安装之后也没有仔细研究过，就用默认设置，甚至有些还没实际用到……&lt;/p>
+&lt;h2 id="列表">列表
+&lt;/h2>&lt;h3 id="常规无论什么用途都可以用到的">常规（无论什么用途都可以用到的）
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>esbenp.prettier-vscode
+Ctrl+Shift+P 进行代码格式化排列&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>azemoh.one-monokai
+类 monokai 主题里免费的，相对好看的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>oderwat.indent-rainbow
+把缩进用彩虹色显示&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>vscode-icons-team.vscode-icons
+Vscode 图表优化&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>tomoki1207.pdf
+VSCode 直接浏览 pdf 文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>brunnerh.insert-unicode
+快速输入 Unicode（emoji）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>fabiospampinato.vscode-diff
+快速对比两文件（diff）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="markdown">Markdown
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>shd101wyy.markdown-preview-enhanced
+Markdown 的预览，包含安装 Chrome 之后快速输出 pdf 格式&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>yzhang.markdown-all-in-one
+Markdown 基本常用功能汇总&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>yzane.markdown-pdf
+PDF 快速转换（用的很少也没有研究怎么自定义主题）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>csholmq.excel-to-markdown-table
+复制 Excel 格式的表格，快速转换成 Markdown 语法工具&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mdickin.markdown-shortcuts
+各种方便功能绑定快捷键（例如制表符的表格快速转化成 Markdown 语法格式）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mushan.vscode-paste-image
+把已复制图片快速保存到当前工作区的相对路径指定文件夹，并插入对应的 Markdown 格式文本&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>foam.foam-vscode
+Markdown 笔记平台，类似 VSCode 上的 Obisidian，但略显粗糙&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="特定语言工具类">特定语言/工具类
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>echatroner.rainbow-csv
+更加简洁地显示 csv&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>meowteam.vscode-math-to-image
+将 Latex 语法的数学公式转换成图片&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>visualstudioexptteam.intellicode-api-usage-examples
+在 Github 上搜索当前 API 的使用示例&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>visualstudioexptteam.vscodeintellicode
+同上（不如说是联动一体）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>wayou.vscode-todo-highlight
+把程序中备注的 TODO 进行高亮显示&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="网页系jsjsoncss">网页系（js,json,css）
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>anseki.vscode-color
+更加方便地输入颜色代码&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>bierner.color-info
+对颜色代码进行情报的补充&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>formulahendry.auto-close-tag
+HTML 自动补全 tag&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>formulahendry.auto-rename-tag
+HTML 自动重命名 tag&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>meezilla.json&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mohsen1.prettify-json&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>json 特化的格式化&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>techer.open-in-browser
+在浏览器中执行测试&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>zainchen.json&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>xabikos.javascriptsnippets&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Obsidian 折腾记，以及为啥我没有选择其他工具</title><link>https://deepseaxx.com/p/20240313-obsidian/</link><pubDate>Fri, 01 Mar 2024 11:00:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240313-obsidian/</guid><description>&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>笔记软件的选择一直很痛。&lt;/p>
+&lt;p>从最原始的手写笔记开始，转移到电子的过程一直不是很顺利。从大学时代买了触控本开始使用 OneNote，然后因为 OneNote 独特个性的 cell，不支持 markdown，导入 pdf 尺寸膨胀恐怖，字体格式非常抽象，和其他平台难以互通之后放弃。然后有相当一段时间一直在用 VSCode 不带任何插件库地单纯写 markdown 的周报，中间有点眼馋 joplin 但又因为他略显封闭而放弃，然后又带着 markdown 文件无痛转移到 Obsidian 但是又没怎么折腾插件，又因为 Obsidian 里 markdown 插入过又删掉的图片越堆越多，且编辑时突然出现的 markdown 格式令人头大，又回归到带 foam 插件的 VSCode，最终还是因为界面不够舒适，社区过于局限而另寻他路。从开始使用 Omnivore 之后我的选择限定在了 Logseq 和 Obsidian 中间，最终因为 Logseq 不支持文件夹分层而放弃，又兜兜转转回到了 Obsidian。&lt;/p>
+&lt;p>整个过程就突出一个什么都想要，但是我要的你都不能给。直到最后回到 Obsidian 之前我才意识到，原来 Obsidian 的强大是藏在插件库里的！并不是他不好用，而是需要自己增减，把他修成自己喜欢的样子。就如同 Vscode，之前一直知道他好用，但是只有遇到痛点，搜到真正需要的插件，再在取舍中找到最适合自己的搭配，才开始真正的“好用”一样，Obisidan 的插件虽然数量繁多，乍一看学习成本虽高，但是真正思考过自己需要的是什么而不是照单全收，才能把软件自定义成自己喜欢的样子。&lt;/p>
+&lt;h2 id="他们不行的地方">他们不行的地方
+&lt;/h2>&lt;p>前言中也稍稍提到过，那些我曾经尝试过，但是最终抛弃的工具及其原因。但是还是想逐一总结一下。&lt;/p>
+&lt;h3 id="onenote">OneNote
+&lt;/h3>&lt;p>OneNote 由于其在 Windows 系统上易于安装（仅仅是安装）的特性，几乎是众多软件中最有先天性优势的一个。同时如果选择了手写的方式进行笔记，那几乎是在 Windows 平台上功能相对丰富，支持相对原生的一个了。搜集了很多，其他好用的软件几乎都是苹果家族，通过 iPad 记录之后，在苹果生态内部绕圈。&lt;/p>
+&lt;p>但是问题也很显著。多个微软账户之间的冲突，本地保存与擅自使用 Onedrive 同步导致的版本冲突，光是我用的短短两三年里就遇到过不少次。而且每次换设备，都会把我另一台设备的用户名注释在旁边的自作聪明行为，简直让我烦的要死。&lt;/p>
+&lt;p>其他的痛点几乎是处处透露着微软开发的那种倔劲，就是疯狂地想教你怎么用软件。包括不限于从网站上复制的内容会自动贴入链接，丝毫不管他是不是代码，是不是多次从同一个网站剪贴。也并不会帮你做总结。表格编辑过程中按下回车或者 Tab，会按照他当时的心情给你创建新行新列，或者在你的表格里插入一个内嵌表格。在任意位置的点击，会在当前位置创建一个新的细胞，他居然还管这个叫 feature。整个页面尺寸的不可控性，导致根据输入的内容几乎无法输出漂亮的 A4 尺寸 PDF，而是会在奇怪的地方超出页面范围或者过窄，或者在奇怪的地方换页。还有插入图片的时候五花八门的尺寸。死活不支持 Markdown，尽管这对微软来说不是什么难事，也早就有了&lt;del>付费的&lt;/del>第三方支持。&lt;/p>
+&lt;p>总之，OneNote 的封闭和独断，成为了我断舍离 OneNote 的直接原因。尤其是当我发现，并没有必要追求笔记的手写，我自己打字比手写更快。而除开手写功能，在书写某些说明性文件的时候，易用程度和泛用程度甚至不如 Excel！&lt;/p>
+&lt;p>结论就是，我很久之前用过两三年的 OneNote，也在微博上跟人长篇大论讨论过为什么我觉得 OneNote 不行，到现在依然拒绝 OneNote。&lt;/p>
+&lt;h3 id="joplin">Joplin
+&lt;/h3>&lt;p>这是我最早用的，Markdown 格式为中心的笔记软件（VSCode 不算笔记软件，所以）。最开始是在使用 VSCode 功能编辑 markdown，但是感觉差点意思，搜寻其他 markdown 工具的时候发现的（同时发现的还有 Typora，但 Typora 对我来说有点过于简单，以至于很快就放弃了）。整个使用 Joplin 的时期不长，在做功课的时候也发现很少有人提到这款，推荐这款的人提到的绝大多数功能，都是普普通通的 VSCode 就可以做到。&lt;/p>
+&lt;p>而我放弃使用 Joplin 的最直接原因就是：丑。或者温和一点说：不美。当然了，免费要什么自行车，而且 md 格式随便就能搬家带走，不像 OneNote 的格式几乎无法无痛搬家。所以我弃用 Joplin 的过程几乎没有发生什么让我印象深刻的不愉快，反而觉得他无功无过，“不是你不好，而是我不喜欢”。&lt;/p>
+&lt;h3 id="foam-vscode">Foam-vscode
+&lt;/h3>&lt;p>从进入 markdown 时代开始，换工具就变得来也快去也快了。虽然在这之前，个人笔记已经开始使用 Obisidan 了，但是让我开始使用 Foam-vscode 的原因非常简单：由于个人对商用的范畴不是很清楚，而 Obisidan 并不支持免费商用，所以我只能寻找一个免费可商用，且尽量少依靠一些来历不明工具的方法。而在那之前我就已经在用 VSCode 记录 md 笔记了，所以整个过程也几乎就是：下载插件 → 整理了一下现有的文件夹结构 → 在自己内部定义好双向链接和 tag 的使用逻辑，就结束了。虽然在生成关系图的时候，无法默认设置隐藏某文件夹的全部图片有点不爽，但是够用，简单，可免费商用，已经足够吸引我了。&lt;/p>
+&lt;h3 id="logseq">Logseq
+&lt;/h3>&lt;p>和 Obisidan 各种意义上都非常相似，哪怕是非原生功能，也大多可以靠第三方插件来达到类似的效果。甚至 Logseq 原生支持的 git 同步功能，方便程度非常之高。iOS 客户端的界面也算友好。尽管 logo 丑了点，&lt;/p>
+&lt;p>但是有一个我无论如何也无法忍受的点，就是不支持文件夹结构。
+尽管你放在文件夹里面的文件会被正确识别，但他就是不舍得在界面上给你增加一个文件夹结构的显示。甚至在搜集资料的途中还发现了诸多婆罗门发言。在有人提出“我觉得应该增加文件夹结构，让想用的人可以用，不想用的人可以不用”的观点时，有几位发出了强烈的反对，类似“我认为坚决不能添加，文件夹结构有多烂 blahblah，熵增 blahblah，违背初衷 blahblah”。先不说每个人的脑回路都不一样了，这种高傲的用户发言让我预见到即使后期增加了这方面功能，也不可避免有一场大论战。于是我就跑路了。反正 markdown，无痛移植！&lt;/p>
+&lt;h2 id="回到-obsidian">回到 Obsidian
+&lt;/h2>&lt;p>最终我还是把我扔进角落的 Obsidian 找了回来。&lt;/p>
+&lt;h3 id="多端同步">多端同步
+&lt;/h3>&lt;p>在之前，我一直仅用电脑端进行记录，但是从我脱离家里蹲状态之后，不在家的时间比例显著增高，显然必须要找到用小小手机也能浏览编辑，至少是浏览的方式了。&lt;/p>
+&lt;p>然后开始着手折腾不通过官方高贵的付费订阅同步，而是自己寻找借助网盘免费额度，或 github，或家用 nas 同步的手段。&lt;/p>
+&lt;p>最后还是使用了开放且慷慨的 GitHub 来同步。借助 PC 端的 Git 插件，可以进行主要的 Push Pull 操作。难点出在经典 iOS 了。&lt;/p>
+&lt;p>我看到的各种文章都表示，手机端的 Git 插件极其不稳定，建议手机端不要借助 git 来同步。而是推荐使用 iOS 端的，实现 git 操作的付费软件 Working Copy，链接 Obsidian 的本地文件夹与 Working Copy 克隆到本地的库，再借助 Working Copy 的手来进行 Push Pull 操作。嗯虽然 Working Copy 高昂的买断价格还是让人犹豫了一下，但考虑到他本身自带一个文本编辑器，除了联动 Obsidian 之外，对其他 repo 也能进行简单的操作，未来说不定用得上，我还是冻手了。&lt;/p>
+&lt;p>顺便为了防止两端的插件设置冲突，建议分别使用单独的资源文件夹。例如主力机使用默认的.obsidian，手机端使用.obsidian.mobile 文件夹。&lt;/p>
+&lt;h3 id="取代-flomothinomemos">取代 flomo，Thino（Memos）
+&lt;/h3>&lt;p>最开始使用 flomo 的目的就是能随手记录一些胡话，但是因为 flomo 也是我最讨厌的封闭系统，所以也在前几天完成了卸载和搬家的工作。&lt;/p>
+&lt;p>但只是把之前的记录简单塞进了 markdown，并没有实现功能上的替代。&lt;/p>
+&lt;p>然后我发现了一个叫 Memos 的插件。在这之前有过别的名字，但我不记得了。虽然就在我第一次发现他，到现在，他又改名了。现在叫 Thino。个人觉得取一个这样有辨识度的名字是很有必要的。&lt;/p>
+&lt;p>总之就是包含了一堆人气很高的功能，比如类似 GitHub 的热点图，类似 flomo 的速记等等。
+虽然有功能更强大的专业版，但是目前来看，免费版就满足我的功能了。&lt;/p>
+&lt;h3 id="omnivore-obsidian">Omnivore-obsidian
+&lt;/h3>&lt;p>&lt;a class="link" href="https://deepseaxx.com/p/20240313-omnivore/" target="_blank" rel="noopener"
+>另一篇文章&lt;/a>中介绍了我选择 Omnivore 的原因。当然如果能把 Omnivore 的存档页面拉取到的 Obsidian 库里当然是更好。总之 Omnivore 已经提供了插件，只需要下载启用简单配置，然后输入 Omnivore 生成的 API Key 就可以工作了。&lt;/p>
+&lt;p>不过至今我还在思考，是否真的需要把别人写的东西拉进我自己的笔记库，还是单纯把他当作收藏和提醒比较好？&lt;/p>
+&lt;h2 id="未完待续">未完待续
+&lt;/h2>&lt;p>寻找自己真正需要的插件，是一个漫长且费脑力，需要决断力和精力的事情。但我觉得如果在远方等待的是，有朝一日确实能大幅提升我的使用体验，解决我的需求，那就是值得的。目前为止，我还只是在融合目前为止使用的其他软件中，曾经用到过的功能并且真的需要的功能，期待未来能发现其他能给我带来惊喜的功能。&lt;/p></description></item><item><title>自己总结的好用小工具</title><link>https://deepseaxx.com/p/20240207-useful-tools/</link><pubDate>Wed, 07 Feb 2024 11:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240207-useful-tools/</guid><description>&lt;h2 id="一覧">一覧
+&lt;/h2>&lt;ul>
+&lt;li>PowerToys
+&lt;ul>
+&lt;li>Fancyzone&lt;/li>
+&lt;li>PowerToys Run&lt;/li>
+&lt;li>Preview&lt;/li>
+&lt;li>Mouse Utility&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>VSCode&lt;/li>
+&lt;li>CubePDF
+&lt;ul>
+&lt;li>Utilities&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Snipaste
+&lt;ul>
+&lt;li>商用可能なのは Snipaste 1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autohotkey&lt;/li>
+&lt;li>Quickswitch
+&lt;ul>
+&lt;li>Library の機能を持ち出し&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Everything
+&lt;ul>
+&lt;li>1.5a の alpha 版&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>magick&lt;/li>
+&lt;li>CopyQ&lt;/li>
+&lt;/ul>
+&lt;h2 id="簡単紹介">簡単紹介
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/microsoft/PowerToys" target="_blank" rel="noopener"
+>PowerToys&lt;/a>（MS 社が開発したツール集）&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Fancyzone：自分が設定したレイアウトで画面の配置が可能&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>PowerToys Run：Alt+space で入力バーを起動し
+○ 電卓、単位変換、日付時間コピー
+○ ファイル・フォルダー・ソフトの起動
+○ PC のシャットダウン・スリープ&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Preview：ファイル開かずに、覗き見ができる&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mouse Utility：マウス位置の特定、クリック蛍光ペン&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Text Extractor：画像にあるテキストをコピー&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Awake：ずっと電源オン状態で保持可能&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Power Rename：ファイル名を正規表現で一括変更&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Text Extrator：画面文字 OCR&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Borderless Mouse：複数のパソコンを一つのマウスでコントロール&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
+>VSCode&lt;/a>：多分いう必要のない、すべてのコーディングと文字ファイル処理に向いている&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.cube-soft.jp/cubepdf/" target="_blank" rel="noopener"
+>CubePDF&lt;/a>：無料ソフト、PDF の編集、画像から PDF の変換&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.snipaste.com/download.html" target="_blank" rel="noopener"
+>Snipaste&lt;/a>：スクリーンショットと編集&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;pre>&lt;code>無料で商用可能なのはバージョン1
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.autohotkey.com/" target="_blank" rel="noopener"
+>autohotkey&lt;/a>：いくつかの動作をスクリプトとして作成、ショートキーより呼び出し可能、プログラミング能力必要&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/gepruts/QuickSwitch/tree/main" target="_blank" rel="noopener"
+>Quickswitch&lt;/a>：Library の機能で、ポップアップ画面で素早くフォルダー間移動&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.voidtools.com/forum/viewtopic.php?t=9787" target="_blank" rel="noopener"
+>Everything&lt;/a>：一瞬でファイル特定ができる&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;ul>
+&lt;li>1.5a の alpha 版があり、新しい機能が追加されている&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://imagemagick.org/script/download.php" target="_blank" rel="noopener"
+>magick&lt;/a>：コマンドラインで画像の変換ができる&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/hluk/CopyQ" target="_blank" rel="noopener"
+>CopyQ&lt;/a>：コピーした内容の履歴が残る、アイテムを固定してダブルクリック入力ができる&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

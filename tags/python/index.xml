@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on DeepseaXX's Blog</title><link>https://deepseaxx.com/tags/python/</link><description>Recent content in Python on DeepseaXX's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 01 Mar 2024 11:00:00 +0900</lastBuildDate><atom:link href="https://deepseaxx.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>关于研究如何用 Python 判断他是个红色</title><link>https://deepseaxx.com/p/20240301-isred/</link><pubDate>Fri, 01 Mar 2024 11:00:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240301-isred/</guid><description>&lt;h2 id="背景">背景
+&lt;/h2>&lt;p>在这之前，遇到的是一个处理奇形怪状的 Excel，并把结果以整理后的格式输出的问题。使用 Python 的 openpyxl，和 Python 那个基本不用过脑子的语法，（但强忍着对游标卡尺的恶心）走迷宫一样探索完了那个奇形怪状的表格。到这为止，基本都靠 ChatGPT 和 bing 搜索（别问为什么不用谷歌，凑积分罢了）就能解决问题。&lt;/p>
+&lt;p>然后就遇到了究极坑点。Excel 表格的上游，是通过单元格的背景颜色填充，来做一个维度的区分的……&lt;/p>
+&lt;p>而且这个上游部门，经常做一些突然就变了的事情，没有提前通知和商量其他部门的交接，就变了，给别的部门本来的工作方法带来了巨大的冲击。很多对接用的系统，都是已经异动到其他部门的前辈用你不熟悉的语言（VBA）写的，可维护性基本等于零。而且不去主动问，基本不会主动给你提供详细的情报，只能去猜。&lt;/p>
+&lt;h2 id="红色">红色
+&lt;/h2>&lt;p>总之经历过了上述问题，答案最终变成了如何识别红色。&lt;/p>
+&lt;p>当然标准的红色 rgb(255,0,0)已经是一个==就能判断的程度了。问题就是上游部门的任性程度，会不会在未来的某一天，突然决定用深红和浅红来再做进一步区分呢。&lt;/p>
+&lt;p>rgb 值虽然简单易懂，但是红绿蓝三个数字的单纯组合，对我这种色彩感知仅有平均普通人水平的人来说，其实非常难以理解。我曾经想少点处理，直接用 R 和 G、B 的差值，R 和 GB 平均值的差值，G 和 B 的差值来粗暴判断，但是！RGB 的增减不是线性变化（或者说不够均匀？），想尽可能判断更多细枝末节（比如 R 值偏低的时候，和 GB 之间的差值也要变化），表达式越来越迷乱，我在 and 和 or 的泥沼中爬向了据说更加现代直观的 hsv 色彩空间。&lt;/p>
+&lt;h2 id="色彩空间的转换">色彩空间的转换
+&lt;/h2>&lt;p>用现成的库肯定是最好的嘛。我选择了 python 标准的 colorsys。&lt;/p>
+&lt;p>首先 colorsys 除了某一个（忘记哪个了，反正我没用到）之外，取值的范围都在[0,1]之间，所以相应的，以 0 到 255 为取值范围的 rgb，或者写成 16 进制格式的 rgb，或者 hsv 等 h 值在 0 到 360 之间的，都需要做一步除法，来转换成 colorsys 所认同的格式。反之转换后的结果，也需要乘法来复原。&lt;/p>
+&lt;p>其次，通过 openpyxl 读取来的 Excel 单元格色彩值，是四位的 0 到 255 之间的值。例如 rgb(255,0,0)，直接读取出来是“FFFF0000”其中第一位的 FF，我也不知道是啥，大概是透明度之类的玩意，总之暂时用不太到。想要用 colorsys 做下一步处理，就得把这字符串的 RGB 的部分先取出来，再进行进制转化。&lt;/p>
+&lt;h2 id="hsv">hsv
+&lt;/h2>&lt;p>哈哈，hsv，色相饱和度明度。确实很直观。本来以为只要判断 h 的范围就够了，然后发现在明度高，或饱和度低的时候，颜色会趋近于黑灰白，不过这总比 rgb 简略多了。最后我写的判断式是&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">return (hsv[0] &amp;lt;= 14/360 or 343/360 &amp;lt;= hsv[0]) and (hsv[1] &amp;gt; 0.33) and (hsv[2] &amp;gt; 0.5) and hsv[1]*hsv[2] &amp;gt; 0.36
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>hsv[0]&lt;/code>，也就是 h，在更广泛的领域里是 0-360 的范围里取值。在 Python 的 colorsys 里面，只有[0,1]的范围。那就简单变换。&lt;/p>
+&lt;p>其他就很简单了，s 和 v 单独不低于阈值，且乘积不低于阈值。基本可以覆盖对于单独一个 h 值下的情况了。&lt;/p>
+&lt;p>最后为了直观，把遍历 hsv 色彩空间之后，根据我的函数判断是否为 red 的结果，直接输出在 Excel 里面。有兴趣的可以自己试试看。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">from openpyxl import Workbook
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">from openpyxl.styles import PatternFill
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">from colorsys import rgb_to_hsv, hsv_to_rgb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">def decimal_to_hex_string(decimal_value):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> decimal_value %= 256
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hex_value = hex(decimal_value)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hex_string = str(hex_value)[2:].zfill(2)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return hex_string
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">def hex_string_to_decimal(hex_string):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> decimal_value = int(hex_string, 16)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return decimal_value
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">def is_rgb_string_red(rgb_string):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # solid: rgb_string[0:2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if len(rgb_string) == 6:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rgb_string = &amp;#34;ff&amp;#34;+rgb_string
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> red = hex_string_to_decimal(rgb_string[2:4])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> green = hex_string_to_decimal(rgb_string[4:6])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> blue = hex_string_to_decimal(rgb_string[6:8])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hsv = rgb_to_hsv(red/256, green/256, blue/256)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # print(hsv[0], hsv[1], hsv[2])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return (hsv[0] &amp;lt;= 14/360 or 343/360 &amp;lt;= hsv[0]) and (hsv[1] &amp;gt; 0.33) and (hsv[2] &amp;gt; 0.5) and hsv[1]*hsv[2] &amp;gt; 0.36
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># color判断結果表作成
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wb = Workbook()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ws = wb.active
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># カウント
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">i = 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">for h in range(0, 100, 1):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> h = (h+90) % 100
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for s in range(30, 100, 5):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for v in range(30, 100, 5):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 一行の列数
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> width = int((100-30)/5)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # hsvからrgbフォーマットに変換
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # colorsysの範囲は0~1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rgb = hsv_to_rgb(h/100, s/100, v/100)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rgb_string = decimal_to_hex_string(int(rgb[0]*256)) + decimal_to_hex_string(
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> int(rgb[1]*256))+decimal_to_hex_string(int(rgb[2]*256))
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ws.cell(row=int(i/width)+1, column=i %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> width+1).fill = PatternFill(&amp;#34;solid&amp;#34;, fgColor=rgb_string)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> result = is_rgb_string_red(rgb_string)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if result:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ws.cell(row=int(i/width)+1, column=i %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> width+1).value = str(result)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> i += 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wb.close()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wb.save(&amp;#39;info/color.xlsx&amp;#39;)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

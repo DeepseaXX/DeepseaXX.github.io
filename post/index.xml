@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on DeepseaXX's Blog</title><link>https://deepseaxx.com/post/</link><description>Recent content in Posts on DeepseaXX's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 23 Oct 2024 11:53:00 +0900</lastBuildDate><atom:link href="https://deepseaxx.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Working Copy，一个 iOS 上的 Git App</title><link>https://deepseaxx.com/p/20241023-workingcopy/</link><pubDate>Wed, 23 Oct 2024 11:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20241023-workingcopy/</guid><description>&lt;p>Working Copy，一个 iOS （以及 iPadOS）上的 Git App。支持 Github 等拉取存储库，支持 SSH。买断制 5000 日元，支持 10 天的 VIP 试用。支持小组件、快捷操作等便捷自动化。&lt;/p>
+&lt;p>最开始是寻找一个能在 iOS 上替 Obsidian 同步 Github 仓库的软件。后来发现 Working Copy 自带的编辑器就足以满足很多简单需求，并且还在遇到一些某些仓库突然出问题的时候，在路上用手机紧急对应。此外还能从文件或者其他APP选文件上传到仓库。&lt;/p>
+&lt;p>5000日元（人民币250）其实还是挺贵的，没有什么竞品的情况下，试用感觉该有的功能都有，尤其又是我最爱的买断制，就入手了。&lt;/p></description></item><item><title>在 Bookmarklet 中实现复制时</title><link>https://deepseaxx.com/p/20240823-bookmarklet-copy/</link><pubDate>Fri, 23 Aug 2024 16:30:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240823-bookmarklet-copy/</guid><description>&lt;p>以前我抄了一段代码是这样的 ↓&lt;/p>
+&lt;p>因为是 Bookmarklet 的要求，代码要写在一行里。懒得改了就凑合看看吧。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">javascript&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">let&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;C:/BoxDrive/Box/&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="n">dotButton&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">querySelectorAll&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;.ItemListBreadcrumb &amp;gt; button&amp;#34;&lt;/span>&lt;span class="p">)[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">];&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">dotButton&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="n">dotButton&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">click&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="p">[&lt;/span> &lt;span class="o">...&lt;/span>&lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">querySelectorAll&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;a[data-resin-target=&amp;#39;openfolder&amp;#39;].menu-item&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="p">]&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">e&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">innerText&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">filter&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">v&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="n">decodeURI&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;すべてのファイル&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">endsWith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">querySelectorAll&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;.ItemListBreadcrumb-listItem&amp;#34;&lt;/span>&lt;span class="p">)]&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">v&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">innerText&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">filter&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="n">v&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="n">v&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="n">decodeURI&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;すべてのファイル&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">function&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">var&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">createElement&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;textarea&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">c&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">getSelection&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">textContent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">appendChild&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">removeAllRanges&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">select&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">execCommand&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;copy&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">removeAllRanges&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">removeChild&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="p">})(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="n">document&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">click&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="p">})();&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>前面的部分跟这次的主题无关，反正就是从网页的某个元素里获得每一个内容物，并依次添加到字符串中，再继续从另一个元素中获得每个内容添加到字符串里，缝合成一个可以本地访问的绝对路径。&lt;/p>
+&lt;p>然后下一步，把这个绝对路径复制到剪贴板，这段代码的实现方式是&lt;code>function (a)&lt;/code>内部，在网页上创建一个元素，通过&lt;code>document.execCommand(&amp;quot;copy&amp;quot;)&lt;/code>复制这个元素的内容，再删掉这个元素。&lt;/p>
+&lt;p>这个方法在我和大部分人的电脑上还是可行的，直到有人说，在他的电脑上 Edge 执行不了，Chrome 可以执行。&lt;/p>
+&lt;p>我开始疑惑，不知道为什么直觉告诉我可能是复制这部分实现的问题。&lt;/p>
+&lt;p>毕竟这个实现方法虽然可用，但是还是有点扭曲，虽然扭曲，但因为可以用就没管它。&lt;/p>
+&lt;p>然后我注意到 VSCode 插件告诉我这个写法现在不推荐了，那推荐的是什么呢，查了一下 ↓。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">navigator.clipboard.writeText(path);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>一行就行，不需要创建一个临时的元素曲线救国了。&lt;/p>
+&lt;p>然后我就立刻替换进去，让那个哥试试。果然解决了。&lt;/p>
+&lt;p>嘻嘻。&lt;/p></description></item><item><title>文件夹操作时提示找不到文件夹，文件名最后一位是空格时的对应方法</title><link>https://deepseaxx.com/p/20240823-folderwithspace/</link><pubDate>Fri, 23 Aug 2024 08:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240823-folderwithspace/</guid><description>&lt;p>不想看背景可以直接看结论。&lt;/p>
+&lt;h2 id="故事背景">故事背景
+&lt;/h2>&lt;p>那天检查科的大爷突然问我，说&lt;/p>
+&lt;blockquote>
+&lt;p>“诶！你知道那个文件夹怎么都删不掉的时候该怎么办吗？”&lt;/p>
+&lt;/blockquote>
+&lt;p>我：&lt;/p>
+&lt;blockquote>
+&lt;p>“啊？”&lt;/p>
+&lt;/blockquote>
+&lt;p>然后发现，在资源管理器界面，文件夹确实好好的在那放着，也可以访问到下级目录，但是对文件夹进行诸如移动，改名，删除之类的操作的时候，就会提示“找不到文件夹”（原文是日语，反正具体提示是啥也忘了）。访问到下级目录的内部时，内部的文件也是可以正常删除的。就这样对着文件夹结构上下其手，最终找到了真的有问题的一层。&lt;/p>
+&lt;p>一个名字类似&amp;quot;&lt;code>20240823 AAA BBB 1 &lt;/code>&amp;ldquo;的文件夹。&lt;/p>
+&lt;p>我陷入了沉思，然后再次重命名的时候，我突然发现……文件夹名的最后有一个空格！&lt;/p>
+&lt;p>在正常资源管理器界面新建文件夹时，最后一位是空格的话，应该会被某一层自动删掉这个空格。但是这个文件夹是某个软件根据固有的命名规则自动生成的，在某种因缘巧合下最后一位是空格，又因为某种阴差阳错，绕过了创建文件夹时对于命名规则的检测，所以就留下了这一坨硬岔……&lt;/p>
+&lt;p>反正问题知道了，再去特定原因就简单了。&lt;/p>
+&lt;h2 id="结论">结论
+&lt;/h2>&lt;h3 id="全路径">全路径
+&lt;/h3>&lt;p>最后一位带空格的文件/文件夹名是不合法的，通过正常的命令无法指定，所以需要特殊的方法。
+这种方法就是通过“&lt;strong>全路径&lt;/strong>”的方法，&lt;/p>
+&lt;p>如果通常情况下的绝对路径是这样的 &lt;code>C:\Program Files\Parent&lt;/code>&lt;/p>
+&lt;p>那所谓的全路径就是 &lt;code>\\?\C:\Program Files\Parent&lt;/code>&lt;/p>
+&lt;p>具体的全路径特指的是什么，有什么特征我也不知道，我也是第一次听这个概念……&lt;/p>
+&lt;p>然后我们通过全路径来指定文件夹操作，&lt;/p>
+&lt;h3 id="对单个文件">对单个文件
+&lt;/h3>&lt;p>如果是单个文件的最后一位是空格，那可以通过修改文件名的方法把它转换成正常可以操作的文件，再进行后续操作。&lt;/p>
+&lt;p>例如我要对 Parent 目录下的&lt;code>test &lt;/code>重命名为 123，则输入&lt;/p>
+&lt;p>&lt;code>ren &amp;quot;\\?\C:\Program Files\Parent\test &amp;quot; &amp;quot;123&amp;quot;&lt;/code>&lt;/p>
+&lt;h3 id="对文件夹">对文件夹
+&lt;/h3>&lt;p>如果是单个文件的最后一位是空格，那就只能把同级和下级内容物全部备份到外部，再指定它的上级文件夹循环删除所有内容。&lt;/p>
+&lt;p>例如我要删除 Parent 文件夹内部的名叫&lt;code>Test &lt;/code>文件夹，我必须对他上级的 Parent 文件夹进行删除操作，同时 Parent 文件夹也会被删除。（尝试过直接对名称错误的文件进行操作，并没能成功……）&lt;code>/s&lt;/code>是对非空文件夹操作的选项，不写会提示文件夹非空无法删除。&lt;code>/q&lt;/code>是不需要确认的选项，不输入会询问是否删除，需要手动回答（Y/N），怕误操作可以不加。&lt;/p>
+&lt;p>&lt;code>rmdir &amp;quot;\\?\C:\Program Files\Parent&amp;quot; /s /q&lt;/code>&lt;/p>
+&lt;h2 id="尝试过的其他方法">尝试过的其他方法
+&lt;/h2>&lt;h3 id="文件夹权限">文件夹权限
+&lt;/h3>&lt;p>文件夹是默认只读权限，试过修改权限也是依然无法删除。并且提示一直是“找不到文件夹”而不是权限不足之类的。&lt;/p>
+&lt;h3 id="powershellcmd-管理员强制删除">Powershell/cmd 管理员强制删除
+&lt;/h3>&lt;p>知道了真正的原因之后，回头想想，仅仅提到管理员权限，加一大堆强制的选项也是显然删不掉的啦。
+不过还是试了，万一呢。&lt;/p>
+&lt;h3 id="获取缩写名">获取缩写名
+&lt;/h3>&lt;p>另外查到通过 cmd 的&lt;code>dir /x&lt;/code>指令获得该文件夹的缩写名，并通过指定缩写名的方式特定到该文件夹，但是我输入这个指令后，缩写名是空白的，所以没成功。&lt;/p>
+&lt;h2 id="罪魁祸首">罪魁祸首
+&lt;/h2>&lt;p>&lt;del>是一款联动 CT 扫描仪的，由 Hexagon 出品的软件&lt;/del>&lt;/p>
+&lt;h2 id="参考">参考
+&lt;/h2>&lt;p>&lt;a class="link" href="https://edyfox.codecarver.org/html/win_illegal_filename.html" target="_blank" rel="noopener"
+>打不开又删不掉的文件&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://learn.microsoft.com/zh-cn/troubleshoot/windows-server/backup-and-storage/cannot-delete-file-folder-on-ntfs-file-system" target="_blank" rel="noopener"
+>无法删除 NTFS 文件系统上的文件 - Windows Server | Microsoft Learn&lt;/a>&lt;/p></description></item><item><title>在 ESXi 上装 Windows11</title><link>https://deepseaxx.com/p/20240814-esxi-windows/</link><pubDate>Wed, 14 Aug 2024 12:00:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240814-esxi-windows/</guid><description>&lt;p>由于用 Debian 怎么都折腾不好 LLOnebot 和 Koishi 的联动，转投 Win11。
+意外地感觉自己肯定记不住。&lt;/p>
+&lt;h2 id="镜像下载">镜像下载
+&lt;/h2>&lt;p>官网或者&lt;a class="link" href="https://uupdump.net/" target="_blank" rel="noopener"
+>UUP dump&lt;/a>下载 ISO 镜像。后者可以定制，但是需要自己电脑跑挺久的。我自己勾选了运行组件清理、集成.NET3.5 和固实压缩，总共花费了 30 分钟左右。&lt;/p>
+&lt;p>创建完成后在脚本同目录出现了.iso 文件，把他上载进 ESXi 的数据存储中。&lt;/p>
+&lt;h2 id="创建新的虚拟机">创建新的虚拟机
+&lt;/h2>&lt;p>选择了 ESXi 8.0 版本，分配了 4 核心，内存 8GB，硬盘 128GB。（需要注意&lt;a class="link" href="https://support.microsoft.com/zh-cn/windows/windows-11%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82-86c11283-ea52-4782-9efd-7674389a7ba3" target="_blank" rel="noopener"
+> Windows 11 的最低要求&lt;/a>，至少后期可以修改。）&lt;/p>
+&lt;p>需要加载 CD/DVD 驱动器，选择刚才上载的镜像文件。&lt;/p>
+&lt;p>然后打开电源，打开控制台进行操作就可以了。&lt;/p>
+&lt;h2 id="绕过-tpm-检测">绕过 TPM 检测
+&lt;/h2>&lt;p>装到一半提示“这台电脑无法运行 Windows 11”，然后才想起来有 TPM2.0 这档子事。在 ESXi 环境中有两种方法，使用虚拟的 vTPM，或者绕过检测。
+参考（照抄）了这篇&lt;a class="link" href="https://www.dinghui.org/vmware-esxi-windows-11.html" target="_blank" rel="noopener"
+>文章&lt;/a>。&lt;/p>
+&lt;p>省流版：在出现“现在安装”的界面，按下 &lt;code>Shift+F10&lt;/code> 呼出命令行，输入&lt;/p>
+&lt;p>&lt;code>REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1&lt;/code>&lt;/p>
+&lt;p>ESXi 网页控制台默认不开启复制粘贴功能，需要参考&lt;a class="link" href="https://blog.exsvc.cn/article/esxi-enable-clipboard-copy-paste.html" target="_blank" rel="noopener"
+>这篇文章&lt;/a>。
+以及右侧 Shift 没用，需要注意。&lt;/p>
+&lt;h2 id="windows11-初始化">Windows11 初始化
+&lt;/h2>&lt;p>正常流程，点点点就行了。&lt;/p>
+&lt;h2 id="后记">后记
+&lt;/h2>&lt;p>想到再补充。&lt;/p></description></item><item><title>最近正在使用的 VSCode 插件小汇总</title><link>https://deepseaxx.com/p/20240731-vscode-extension/</link><pubDate>Wed, 31 Jul 2024 11:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240731-vscode-extension/</guid><description>&lt;p>因为是命令行直接导出的列表之后编辑的，一律以&lt;code>发行方.识别名&lt;/code>的格式列表。&lt;/p>
+&lt;p>有一些插件安装之后也没有仔细研究过，就用默认设置，甚至有些还没实际用到……&lt;/p>
+&lt;h2 id="列表">列表
+&lt;/h2>&lt;h3 id="常规无论什么用途都可以用到的">常规（无论什么用途都可以用到的）
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>esbenp.prettier-vscode
+Ctrl+Shift+P 进行代码格式化排列&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>azemoh.one-monokai
+类 monokai 主题里免费的，相对好看的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>oderwat.indent-rainbow
+把缩进用彩虹色显示&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>vscode-icons-team.vscode-icons
+Vscode 图表优化&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>tomoki1207.pdf
+VSCode 直接浏览 pdf 文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>brunnerh.insert-unicode
+快速输入 Unicode（emoji）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>fabiospampinato.vscode-diff
+快速对比两文件（diff）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="markdown">Markdown
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>shd101wyy.markdown-preview-enhanced
+Markdown 的预览，包含安装 Chrome 之后快速输出 pdf 格式&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>yzhang.markdown-all-in-one
+Markdown 基本常用功能汇总&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>yzane.markdown-pdf
+PDF 快速转换（用的很少也没有研究怎么自定义主题）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>csholmq.excel-to-markdown-table
+复制 Excel 格式的表格，快速转换成 Markdown 语法工具&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mdickin.markdown-shortcuts
+各种方便功能绑定快捷键（例如制表符的表格快速转化成 Markdown 语法格式）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mushan.vscode-paste-image
+把已复制图片快速保存到当前工作区的相对路径指定文件夹，并插入对应的 Markdown 格式文本&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>foam.foam-vscode
+Markdown 笔记平台，类似 VSCode 上的 Obisidian，但略显粗糙&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="特定语言工具类">特定语言/工具类
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>echatroner.rainbow-csv
+更加简洁地显示 csv&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>meowteam.vscode-math-to-image
+将 Latex 语法的数学公式转换成图片&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>visualstudioexptteam.intellicode-api-usage-examples
+在 Github 上搜索当前 API 的使用示例&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>visualstudioexptteam.vscodeintellicode
+同上（不如说是联动一体）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>wayou.vscode-todo-highlight
+把程序中备注的 TODO 进行高亮显示&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="网页系jsjsoncss">网页系（js,json,css）
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>anseki.vscode-color
+更加方便地输入颜色代码&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>bierner.color-info
+对颜色代码进行情报的补充&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>formulahendry.auto-close-tag
+HTML 自动补全 tag&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>formulahendry.auto-rename-tag
+HTML 自动重命名 tag&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>meezilla.json&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>mohsen1.prettify-json&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>json 特化的格式化&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>techer.open-in-browser
+在浏览器中执行测试&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>zainchen.json&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>xabikos.javascriptsnippets&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>把 Cubox 扔了，转移 Omnivore 记</title><link>https://deepseaxx.com/p/20240313-omnivore/</link><pubDate>Wed, 13 Mar 2024 12:00:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240313-omnivore/</guid><description>&lt;p>在记录完&lt;a class="link" href="https://deepseaxx.com/p/20240229-cubox/" target="_blank" rel="noopener"
+>使用 Cubox 免费版的心得&lt;/a>之后，我还是觉得 cubox 的痛点非常不爽，并继续寻找之路。最后找到了一款在各方面知名度远不如 cubox 等类似软件，但用起来非常满意的的一款免费网页裁剪+阅读列表,&lt;a class="link" href="https://omnivore.app/home" target="_blank" rel="noopener"
+>Omnivore&lt;/a>。&lt;/p>
+&lt;h2 id="上手">上手
+&lt;/h2>&lt;p>讲究一个开源免费，开箱即用。上述链接点进去。直接就进入产品页面了。过于直接粗暴以至于在用之前习惯先看看首页文档的我甚至有些震惊。&lt;/p>
+&lt;p>添加很简单。使用浏览器插件，在打开某网页的时候单击图标即可即时裁剪。右键打开主界面之后，单击左下角的 Add 也可以通过添加链接的方式，云端（貌似是）裁剪。适用于一切由于某原因，当前设备打不开，但又想当下阅读的情况。&lt;/p>
+&lt;p>添加之后的页面会被默认保存到 Inbox，此外根据你是否点进去过至少一次，分类到 Continue Reading。阅读过程中标注的部分会被添加到 Highlights，也可以添加自定义 label，阅读完归档到 Archived。&lt;/p>
+&lt;p>阅读完之后还可以通过插件库存档到 Logseq 或者 Obsidian。当然也有其他平台，但不多。支持 API 联动，但除了自带的几个支持的平台，就需要自己搓了。&lt;/p>
+&lt;h2 id="ios-app">iOS APP
+&lt;/h2>&lt;p>能在 iOS 上有原生 app 支持也是我选择他的原因之一。并且快速保存也作为快捷指令的命令之一存在。这就大大提升了保存这个行为的易用程度。搭配我已经存在的，“获取剪切板中 URL”的命令，如果复制的内容中存在 URL，则直接保存，如果不存在 URL，则直接保存该关键词的谷歌搜索结果页面。另一种意义上，保存搜索结果也是提醒自己，“一会记得查查这个”。&lt;/p>
+&lt;h2 id="结束">结束
+&lt;/h2>&lt;p>非常简单的软件/平台，以至于体感上还没开始写就差不多写完了。这么简单的软件却完全契合了我最重要的几点需求，我直接转手无痛割掉了 Cubox 以及其他尝试使用的竞品工具。免费包含 50000 的阅读上限，配合导出 Obsidian，怕是后面即使快用完了也可以光速腾笼换鸟。&lt;/p></description></item><item><title>Obsidian 折腾记，以及为啥我没有选择其他工具</title><link>https://deepseaxx.com/p/20240313-obsidian/</link><pubDate>Fri, 01 Mar 2024 11:00:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240313-obsidian/</guid><description>&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>笔记软件的选择一直很痛。&lt;/p>
+&lt;p>从最原始的手写笔记开始，转移到电子的过程一直不是很顺利。从大学时代买了触控本开始使用 OneNote，然后因为 OneNote 独特个性的 cell，不支持 markdown，导入 pdf 尺寸膨胀恐怖，字体格式非常抽象，和其他平台难以互通之后放弃。然后有相当一段时间一直在用 VSCode 不带任何插件库地单纯写 markdown 的周报，中间有点眼馋 joplin 但又因为他略显封闭而放弃，然后又带着 markdown 文件无痛转移到 Obsidian 但是又没怎么折腾插件，又因为 Obsidian 里 markdown 插入过又删掉的图片越堆越多，且编辑时突然出现的 markdown 格式令人头大，又回归到带 foam 插件的 VSCode，最终还是因为界面不够舒适，社区过于局限而另寻他路。从开始使用 Omnivore 之后我的选择限定在了 Logseq 和 Obsidian 中间，最终因为 Logseq 不支持文件夹分层而放弃，又兜兜转转回到了 Obsidian。&lt;/p>
+&lt;p>整个过程就突出一个什么都想要，但是我要的你都不能给。直到最后回到 Obsidian 之前我才意识到，原来 Obsidian 的强大是藏在插件库里的！并不是他不好用，而是需要自己增减，把他修成自己喜欢的样子。就如同 Vscode，之前一直知道他好用，但是只有遇到痛点，搜到真正需要的插件，再在取舍中找到最适合自己的搭配，才开始真正的“好用”一样，Obisidan 的插件虽然数量繁多，乍一看学习成本虽高，但是真正思考过自己需要的是什么而不是照单全收，才能把软件自定义成自己喜欢的样子。&lt;/p>
+&lt;h2 id="他们不行的地方">他们不行的地方
+&lt;/h2>&lt;p>前言中也稍稍提到过，那些我曾经尝试过，但是最终抛弃的工具及其原因。但是还是想逐一总结一下。&lt;/p>
+&lt;h3 id="onenote">OneNote
+&lt;/h3>&lt;p>OneNote 由于其在 Windows 系统上易于安装（仅仅是安装）的特性，几乎是众多软件中最有先天性优势的一个。同时如果选择了手写的方式进行笔记，那几乎是在 Windows 平台上功能相对丰富，支持相对原生的一个了。搜集了很多，其他好用的软件几乎都是苹果家族，通过 iPad 记录之后，在苹果生态内部绕圈。&lt;/p>
+&lt;p>但是问题也很显著。多个微软账户之间的冲突，本地保存与擅自使用 Onedrive 同步导致的版本冲突，光是我用的短短两三年里就遇到过不少次。而且每次换设备，都会把我另一台设备的用户名注释在旁边的自作聪明行为，简直让我烦的要死。&lt;/p>
+&lt;p>其他的痛点几乎是处处透露着微软开发的那种倔劲，就是疯狂地想教你怎么用软件。包括不限于从网站上复制的内容会自动贴入链接，丝毫不管他是不是代码，是不是多次从同一个网站剪贴。也并不会帮你做总结。表格编辑过程中按下回车或者 Tab，会按照他当时的心情给你创建新行新列，或者在你的表格里插入一个内嵌表格。在任意位置的点击，会在当前位置创建一个新的细胞，他居然还管这个叫 feature。整个页面尺寸的不可控性，导致根据输入的内容几乎无法输出漂亮的 A4 尺寸 PDF，而是会在奇怪的地方超出页面范围或者过窄，或者在奇怪的地方换页。还有插入图片的时候五花八门的尺寸。死活不支持 Markdown，尽管这对微软来说不是什么难事，也早就有了&lt;del>付费的&lt;/del>第三方支持。&lt;/p>
+&lt;p>总之，OneNote 的封闭和独断，成为了我断舍离 OneNote 的直接原因。尤其是当我发现，并没有必要追求笔记的手写，我自己打字比手写更快。而除开手写功能，在书写某些说明性文件的时候，易用程度和泛用程度甚至不如 Excel！&lt;/p>
+&lt;p>结论就是，我很久之前用过两三年的 OneNote，也在微博上跟人长篇大论讨论过为什么我觉得 OneNote 不行，到现在依然拒绝 OneNote。&lt;/p>
+&lt;h3 id="joplin">Joplin
+&lt;/h3>&lt;p>这是我最早用的，Markdown 格式为中心的笔记软件（VSCode 不算笔记软件，所以）。最开始是在使用 VSCode 功能编辑 markdown，但是感觉差点意思，搜寻其他 markdown 工具的时候发现的（同时发现的还有 Typora，但 Typora 对我来说有点过于简单，以至于很快就放弃了）。整个使用 Joplin 的时期不长，在做功课的时候也发现很少有人提到这款，推荐这款的人提到的绝大多数功能，都是普普通通的 VSCode 就可以做到。&lt;/p>
+&lt;p>而我放弃使用 Joplin 的最直接原因就是：丑。或者温和一点说：不美。当然了，免费要什么自行车，而且 md 格式随便就能搬家带走，不像 OneNote 的格式几乎无法无痛搬家。所以我弃用 Joplin 的过程几乎没有发生什么让我印象深刻的不愉快，反而觉得他无功无过，“不是你不好，而是我不喜欢”。&lt;/p>
+&lt;h3 id="foam-vscode">Foam-vscode
+&lt;/h3>&lt;p>从进入 markdown 时代开始，换工具就变得来也快去也快了。虽然在这之前，个人笔记已经开始使用 Obisidan 了，但是让我开始使用 Foam-vscode 的原因非常简单：由于个人对商用的范畴不是很清楚，而 Obisidan 并不支持免费商用，所以我只能寻找一个免费可商用，且尽量少依靠一些来历不明工具的方法。而在那之前我就已经在用 VSCode 记录 md 笔记了，所以整个过程也几乎就是：下载插件 → 整理了一下现有的文件夹结构 → 在自己内部定义好双向链接和 tag 的使用逻辑，就结束了。虽然在生成关系图的时候，无法默认设置隐藏某文件夹的全部图片有点不爽，但是够用，简单，可免费商用，已经足够吸引我了。&lt;/p>
+&lt;h3 id="logseq">Logseq
+&lt;/h3>&lt;p>和 Obisidan 各种意义上都非常相似，哪怕是非原生功能，也大多可以靠第三方插件来达到类似的效果。甚至 Logseq 原生支持的 git 同步功能，方便程度非常之高。iOS 客户端的界面也算友好。尽管 logo 丑了点，&lt;/p>
+&lt;p>但是有一个我无论如何也无法忍受的点，就是不支持文件夹结构。
+尽管你放在文件夹里面的文件会被正确识别，但他就是不舍得在界面上给你增加一个文件夹结构的显示。甚至在搜集资料的途中还发现了诸多婆罗门发言。在有人提出“我觉得应该增加文件夹结构，让想用的人可以用，不想用的人可以不用”的观点时，有几位发出了强烈的反对，类似“我认为坚决不能添加，文件夹结构有多烂 blahblah，熵增 blahblah，违背初衷 blahblah”。先不说每个人的脑回路都不一样了，这种高傲的用户发言让我预见到即使后期增加了这方面功能，也不可避免有一场大论战。于是我就跑路了。反正 markdown，无痛移植！&lt;/p>
+&lt;h2 id="回到-obsidian">回到 Obsidian
+&lt;/h2>&lt;p>最终我还是把我扔进角落的 Obsidian 找了回来。&lt;/p>
+&lt;h3 id="多端同步">多端同步
+&lt;/h3>&lt;p>在之前，我一直仅用电脑端进行记录，但是从我脱离家里蹲状态之后，不在家的时间比例显著增高，显然必须要找到用小小手机也能浏览编辑，至少是浏览的方式了。&lt;/p>
+&lt;p>然后开始着手折腾不通过官方高贵的付费订阅同步，而是自己寻找借助网盘免费额度，或 github，或家用 nas 同步的手段。&lt;/p>
+&lt;p>最后还是使用了开放且慷慨的 GitHub 来同步。借助 PC 端的 Git 插件，可以进行主要的 Push Pull 操作。难点出在经典 iOS 了。&lt;/p>
+&lt;p>我看到的各种文章都表示，手机端的 Git 插件极其不稳定，建议手机端不要借助 git 来同步。而是推荐使用 iOS 端的，实现 git 操作的付费软件 Working Copy，链接 Obsidian 的本地文件夹与 Working Copy 克隆到本地的库，再借助 Working Copy 的手来进行 Push Pull 操作。嗯虽然 Working Copy 高昂的买断价格还是让人犹豫了一下，但考虑到他本身自带一个文本编辑器，除了联动 Obsidian 之外，对其他 repo 也能进行简单的操作，未来说不定用得上，我还是冻手了。&lt;/p>
+&lt;p>顺便为了防止两端的插件设置冲突，建议分别使用单独的资源文件夹。例如主力机使用默认的.obsidian，手机端使用.obsidian.mobile 文件夹。&lt;/p>
+&lt;h3 id="取代-flomothinomemos">取代 flomo，Thino（Memos）
+&lt;/h3>&lt;p>最开始使用 flomo 的目的就是能随手记录一些胡话，但是因为 flomo 也是我最讨厌的封闭系统，所以也在前几天完成了卸载和搬家的工作。&lt;/p>
+&lt;p>但只是把之前的记录简单塞进了 markdown，并没有实现功能上的替代。&lt;/p>
+&lt;p>然后我发现了一个叫 Memos 的插件。在这之前有过别的名字，但我不记得了。虽然就在我第一次发现他，到现在，他又改名了。现在叫 Thino。个人觉得取一个这样有辨识度的名字是很有必要的。&lt;/p>
+&lt;p>总之就是包含了一堆人气很高的功能，比如类似 GitHub 的热点图，类似 flomo 的速记等等。
+虽然有功能更强大的专业版，但是目前来看，免费版就满足我的功能了。&lt;/p>
+&lt;h3 id="omnivore-obsidian">Omnivore-obsidian
+&lt;/h3>&lt;p>&lt;a class="link" href="https://deepseaxx.com/p/20240313-omnivore/" target="_blank" rel="noopener"
+>另一篇文章&lt;/a>中介绍了我选择 Omnivore 的原因。当然如果能把 Omnivore 的存档页面拉取到的 Obsidian 库里当然是更好。总之 Omnivore 已经提供了插件，只需要下载启用简单配置，然后输入 Omnivore 生成的 API Key 就可以工作了。&lt;/p>
+&lt;p>不过至今我还在思考，是否真的需要把别人写的东西拉进我自己的笔记库，还是单纯把他当作收藏和提醒比较好？&lt;/p>
+&lt;h2 id="未完待续">未完待续
+&lt;/h2>&lt;p>寻找自己真正需要的插件，是一个漫长且费脑力，需要决断力和精力的事情。但我觉得如果在远方等待的是，有朝一日确实能大幅提升我的使用体验，解决我的需求，那就是值得的。目前为止，我还只是在融合目前为止使用的其他软件中，曾经用到过的功能并且真的需要的功能，期待未来能发现其他能给我带来惊喜的功能。&lt;/p></description></item><item><title>关于研究如何用 Python 判断他是个红色</title><link>https://deepseaxx.com/p/20240301-isred/</link><pubDate>Fri, 01 Mar 2024 11:00:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240301-isred/</guid><description>&lt;h2 id="背景">背景
+&lt;/h2>&lt;p>在这之前，遇到的是一个处理奇形怪状的 Excel，并把结果以整理后的格式输出的问题。使用 Python 的 openpyxl，和 Python 那个基本不用过脑子的语法，（但强忍着对游标卡尺的恶心）走迷宫一样探索完了那个奇形怪状的表格。到这为止，基本都靠 ChatGPT 和 bing 搜索（别问为什么不用谷歌，凑积分罢了）就能解决问题。&lt;/p>
+&lt;p>然后就遇到了究极坑点。Excel 表格的上游，是通过单元格的背景颜色填充，来做一个维度的区分的……&lt;/p>
+&lt;p>而且这个上游部门，经常做一些突然就变了的事情，没有提前通知和商量其他部门的交接，就变了，给别的部门本来的工作方法带来了巨大的冲击。很多对接用的系统，都是已经异动到其他部门的前辈用你不熟悉的语言（VBA）写的，可维护性基本等于零。而且不去主动问，基本不会主动给你提供详细的情报，只能去猜。&lt;/p>
+&lt;h2 id="红色">红色
+&lt;/h2>&lt;p>总之经历过了上述问题，答案最终变成了如何识别红色。&lt;/p>
+&lt;p>当然标准的红色 rgb(255,0,0)已经是一个==就能判断的程度了。问题就是上游部门的任性程度，会不会在未来的某一天，突然决定用深红和浅红来再做进一步区分呢。&lt;/p>
+&lt;p>rgb 值虽然简单易懂，但是红绿蓝三个数字的单纯组合，对我这种色彩感知仅有平均普通人水平的人来说，其实非常难以理解。我曾经想少点处理，直接用 R 和 G、B 的差值，R 和 GB 平均值的差值，G 和 B 的差值来粗暴判断，但是！RGB 的增减不是线性变化（或者说不够均匀？），想尽可能判断更多细枝末节（比如 R 值偏低的时候，和 GB 之间的差值也要变化），表达式越来越迷乱，我在 and 和 or 的泥沼中爬向了据说更加现代直观的 hsv 色彩空间。&lt;/p>
+&lt;h2 id="色彩空间的转换">色彩空间的转换
+&lt;/h2>&lt;p>用现成的库肯定是最好的嘛。我选择了 python 标准的 colorsys。&lt;/p>
+&lt;p>首先 colorsys 除了某一个（忘记哪个了，反正我没用到）之外，取值的范围都在[0,1]之间，所以相应的，以 0 到 255 为取值范围的 rgb，或者写成 16 进制格式的 rgb，或者 hsv 等 h 值在 0 到 360 之间的，都需要做一步除法，来转换成 colorsys 所认同的格式。反之转换后的结果，也需要乘法来复原。&lt;/p>
+&lt;p>其次，通过 openpyxl 读取来的 Excel 单元格色彩值，是四位的 0 到 255 之间的值。例如 rgb(255,0,0)，直接读取出来是“FFFF0000”其中第一位的 FF，我也不知道是啥，大概是透明度之类的玩意，总之暂时用不太到。想要用 colorsys 做下一步处理，就得把这字符串的 RGB 的部分先取出来，再进行进制转化。&lt;/p>
+&lt;h2 id="hsv">hsv
+&lt;/h2>&lt;p>哈哈，hsv，色相饱和度明度。确实很直观。本来以为只要判断 h 的范围就够了，然后发现在明度高，或饱和度低的时候，颜色会趋近于黑灰白，不过这总比 rgb 简略多了。最后我写的判断式是&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">return (hsv[0] &amp;lt;= 14/360 or 343/360 &amp;lt;= hsv[0]) and (hsv[1] &amp;gt; 0.33) and (hsv[2] &amp;gt; 0.5) and hsv[1]*hsv[2] &amp;gt; 0.36
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>hsv[0]&lt;/code>，也就是 h，在更广泛的领域里是 0-360 的范围里取值。在 Python 的 colorsys 里面，只有[0,1]的范围。那就简单变换。&lt;/p>
+&lt;p>其他就很简单了，s 和 v 单独不低于阈值，且乘积不低于阈值。基本可以覆盖对于单独一个 h 值下的情况了。&lt;/p>
+&lt;p>最后为了直观，把遍历 hsv 色彩空间之后，根据我的函数判断是否为 red 的结果，直接输出在 Excel 里面。有兴趣的可以自己试试看。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">from openpyxl import Workbook
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">from openpyxl.styles import PatternFill
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">from colorsys import rgb_to_hsv, hsv_to_rgb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">def decimal_to_hex_string(decimal_value):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> decimal_value %= 256
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hex_value = hex(decimal_value)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hex_string = str(hex_value)[2:].zfill(2)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return hex_string
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">def hex_string_to_decimal(hex_string):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> decimal_value = int(hex_string, 16)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return decimal_value
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">def is_rgb_string_red(rgb_string):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # solid: rgb_string[0:2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if len(rgb_string) == 6:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rgb_string = &amp;#34;ff&amp;#34;+rgb_string
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> red = hex_string_to_decimal(rgb_string[2:4])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> green = hex_string_to_decimal(rgb_string[4:6])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> blue = hex_string_to_decimal(rgb_string[6:8])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hsv = rgb_to_hsv(red/256, green/256, blue/256)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # print(hsv[0], hsv[1], hsv[2])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return (hsv[0] &amp;lt;= 14/360 or 343/360 &amp;lt;= hsv[0]) and (hsv[1] &amp;gt; 0.33) and (hsv[2] &amp;gt; 0.5) and hsv[1]*hsv[2] &amp;gt; 0.36
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># color判断結果表作成
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wb = Workbook()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ws = wb.active
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># カウント
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">i = 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">for h in range(0, 100, 1):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> h = (h+90) % 100
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for s in range(30, 100, 5):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for v in range(30, 100, 5):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # 一行の列数
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> width = int((100-30)/5)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # hsvからrgbフォーマットに変換
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> # colorsysの範囲は0~1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rgb = hsv_to_rgb(h/100, s/100, v/100)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rgb_string = decimal_to_hex_string(int(rgb[0]*256)) + decimal_to_hex_string(
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> int(rgb[1]*256))+decimal_to_hex_string(int(rgb[2]*256))
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ws.cell(row=int(i/width)+1, column=i %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> width+1).fill = PatternFill(&amp;#34;solid&amp;#34;, fgColor=rgb_string)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> result = is_rgb_string_red(rgb_string)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if result:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ws.cell(row=int(i/width)+1, column=i %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> width+1).value = str(result)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> i += 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wb.close()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wb.save(&amp;#39;info/color.xlsx&amp;#39;)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Cubox 免费版使用感想</title><link>https://deepseaxx.com/p/20240229-cubox/</link><pubDate>Fri, 01 Mar 2024 10:15:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240229-cubox/</guid><description>&lt;h2 id="在这次使用-cubox-之前">在这次使用 Cubox 之前
+&lt;/h2>&lt;p>其实很早之前我就试过 Cubox。&lt;/p>
+&lt;p>当时我的最主要目标是，寻找一款多平台，能够分别替代 iOS 自带的备忘录和 Windows 的便笺，整合到统一服务，随时随机记录一些碎片想法，并且要么免费功能足够使用，要么付费买断的工具。&lt;/p>
+&lt;p>当时经过对比后，决定使用 flomo。&lt;del>当然现在其实有点后悔了，功能有点局限，而且使用起来不如想象中直观。想举家搬迁了。但是诸如 MS 社的这方面方案做的又不是很给力，否则我真的很想在一个生态里扎根啊。&lt;/del>&lt;/p>
+&lt;p>反正当时也顺便了解了一下 Cubox。&lt;/p>
+&lt;h2 id="cubox-用或者不用">Cubox 用或者不用
+&lt;/h2>&lt;p>从第一次知道 Cubox 这个东西，到决定不用，到现在又捡起来擦擦继续用，我经历了这些。&lt;/p>
+&lt;p>第一次放弃的原因是：&lt;/p>
+&lt;ol>
+&lt;li>当时的需求和 Cubox 的定位不契合。Cubox 更倾向于整理别人的分享，而不是做自己的记录。&lt;/li>
+&lt;li>付费是月费，相对于它的功能来讲，价格略高于预期。不光时 Cubox，这类产品的海外版费用，普遍在 240RMB/年（用 RMB 当单位是因为单位各有不同，这里单纯便于直观感知），只是为了一个笔记的话，属实有点奢侈了。&lt;/li>
+&lt;li>作为一个独立的服务，只和 Notion 和另一款我并没听过的笔记平台做了联动，整体来讲提供的功能还是太片面。&lt;/li>
+&lt;/ol>
+&lt;p>当然这是当时的想法，很显然当时我并没有一个“这个知识点暂时看不懂下次再看”和多平台分享的迫切。并且当时的使用 Edge 浏览器自带的收藏功能就足以满足我当时的需求了。&lt;/p>
+&lt;p>导致我的想法产生转变的最主要原因是：&lt;/p>
+&lt;p>比起一闪而过的想法（flomo），我会直接去搜索一闪而过的想法，但是搜出来的答案我却没法瞬间看完。这是就暴露出来我已经在使用的几个解决方法的问题。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Edge 浏览器收藏夹&lt;/strong>
+&lt;ul>
+&lt;li>分类需要自己去搞，默认添加的地址经常会越积越多，但完全想不起来看到哪里，哪些还没看，哪些暂时还不需要看，最终石沉大海。&lt;/li>
+&lt;li>存档和阅读列表没法区分好，收藏夹最适合的还是用来快速访问和归档。&lt;/li>
+&lt;li>尽管 Edge 在做集锦功能，但是那玩意的操作体验和访问体验实在是无法描述有多难用。并且有流产倾向。&lt;del>感觉微软经常会突然开始做一个新功能，然后在新功能还没到提升到好用的程度之前，就被抛弃&lt;/del>&lt;/li>
+&lt;li>手机端的操作极其不直观。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>flomo&lt;/strong>
+&lt;ul>
+&lt;li>前文也说了，这是一个主要用来整理&lt;strong>自己的想法&lt;/strong>的工具，完全不适合收藏链接。我放进去一个链接，他甚至不舍得帮我获取一下标题。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>OneTab 浏览器插件&lt;/strong>
+&lt;ul>
+&lt;li>只是跟浏览器收藏夹的表现形式有些不同的收藏夹罢了。但是他的界面意外地很适合做阅读列表。&lt;/li>
+&lt;li>但没有任何同步和备份功能。只有在你这一个浏览器的内部生效。离开了当前操作的这台电脑，丢失了这个浏览器的数据，就消散了。我有好多次重装系统、清空浏览器设置后发现 OneTab 存储的那些页面都消失，才追悔莫及。毕竟只是浏览器扩展，支持导入导出和一览分享已经挺给面子的了。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>反正就是，我已经在用的方法，都差点意思。&lt;/p>
+&lt;h2 id="cubox-的基本使用">Cubox 的基本使用
+&lt;/h2>&lt;p>Cubox 最基本的操作就是，扔进去 → 看 → 看完整理。&lt;/p>
+&lt;p>至于其他的 AI 整理啊，图片视频归档啊，记录文字啊，我不需要用 Cubox 整理，且相当多的功能免费版用不了。&lt;/p>
+&lt;p>暂时没有付费的打算。一个是月费焦虑，在价格无法简单四舍到零的情况下，订阅制会让我产生相当大的焦虑感，“是不是还有什么我没开发的功能”。如果开始付费，就会面临着无法轻易跑路的沉没成本问题。另外就是，Cubox 的搬家功能看起来不是很完善。仅仅是看起来，因为并没有深入了解。&lt;/p>
+&lt;h3 id="扔进去">扔进去
+&lt;/h3>&lt;p>这是到目前为止用起来最爽的一个功能。&lt;/p>
+&lt;p>首先，支持的渠道丰富。操作无脑简洁，不需要花费额外的思考成本。我只需要在浏览器插件上点一下就可以收藏，手机借助了 iOS 的小组件或分享功能，也可以一键收藏。然后再在 Cubox 的内部进行解析。&lt;/p>
+&lt;h3 id="看">看
+&lt;/h3>&lt;p>借助扩展插件，打开 My Cubox 链接即可查看，并且不是直接打开链接，而是经过 Cubox 的解析，成为适合阅读的形态。一个是避免了页面本身充满的其他情报扰乱阅读过程，另一个是绕开了一些访问限制（比如公司网络）。&lt;/p>
+&lt;p>关于 Cubox 收集起来之后的解析处理，这见仁见智，但是对收藏的页面进行解析，而不是单纯保存链接，可能会成为我选择这类产品时必要的需求。&lt;/p>
+&lt;h3 id="整理">整理
+&lt;/h3>&lt;p>由于免费用户只有 200 的收藏额度，我必须决定如何取舍。首先未读项目肯定拥有最高的优先级。其次，阅读完毕没有价值的项目可以直接删除，但是由于我的囤货心理，一旦删除就会石沉大海的话，我就不忍心下手。当然，我已经感觉到，这一点可能会成为我决定放弃 Cubox 的一个暗雷了。&lt;/p>
+&lt;h2 id="暂时有潜力的其他竞品">暂时有潜力的其他竞品
+&lt;/h2>&lt;p>其实在搜寻竞品的过程中，也发现有比 Cubox 看起来不错，但是免费版功能过少的，也有慈善买断制，但是光安装就卡住了我的。（简阅，安装到 iOS 需要安装一个叫 JSBox 的东西，但是这个 JSBox 却是月费订阅制……）&lt;/p>
+&lt;p>大部分还没有全面接触和评估，所以仅作为参考以及备忘。
+其中有与 Cubox 同类的解析整理，也有单纯对书签进行整理同步的。我更倾向于前者，因为后者使用 Edge 已经足够了。
+Pocket，InstaPaper，Raindrop，GoodLinks……&lt;/p></description></item><item><title>iOS 上个人比较常用的修图改图作图 APP</title><link>https://deepseaxx.com/p/20240212-ios-images/</link><pubDate>Mon, 12 Feb 2024 17:00:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240212-ios-images/</guid><description>&lt;h2 id="写在前面">写在前面
+&lt;/h2>&lt;p>我个人对于 iOS APP 的态度是，好用、价格合适（指相对功能的复杂程度来讲）、支持买断就买断，订阅制基本直接 pass。&lt;/p>
+&lt;p>也是这个原因，很多日常整活都依靠这些买断的 APP，导致我很难无痛转生到 Android 系统上。&lt;/p>
+&lt;h2 id="介绍">介绍
+&lt;/h2>&lt;h3 id="phonto">&lt;strong>Phonto&lt;/strong>
+&lt;/h3>&lt;p>用来在图片上添加文字，免费有广告，可内购去广告，但是一般广告会出现在修完一张图之后，只修一张的时候感知为 0，所以不需要特意去广告。&lt;/p>
+&lt;h3 id="sketchbook">&lt;strong>Sketchbook&lt;/strong>
+&lt;/h3>&lt;p>更类似 Photoshop 的逻辑，支持抠图滤镜变换加字加图，支持多图层。&lt;/p>
+&lt;p>涂鸦功能更加类似于画笔，有铅笔钢笔毛笔水彩油画笔等多种效果，并且自定义空间非常大。但缺少一个简单粗暴的涂鸦预设。&lt;/p>
+&lt;p>本人从刚接触就买断了高级版，使用至今，APP 仍在不断优化 UI 布局。&lt;/p>
+&lt;h3 id="天天-p-图">&lt;strong>天天 P 图&lt;/strong>
+&lt;/h3>&lt;p>不多说了，我用这玩意更多是用来恶搞，比如用大眼特效 P 鬼图。&lt;/p>
+&lt;h3 id="长图拼接大师">&lt;strong>长图拼接大师&lt;/strong>
+&lt;/h3>&lt;p>iOS 至今仍然缺少的长图功能。之前一直用的某软件突然之间从 App Store 消失了。试用了一圈之后这个逻辑稍微正常一点。依然是高级版买断去广告。&lt;/p>
+&lt;p>最大的问题是，本身菜单已经区分了“普通拼接”和“智能拼接”，你为什么还要在我选择了其中之一之后再问一遍？&lt;/p>
+&lt;h3 id="gif-制作器">&lt;strong>GIF 制作器&lt;/strong>
+&lt;/h3>&lt;p>本人常用的 GIF 整活工具之一。依然是买断去广告。&lt;/p>
+&lt;p>满足我 99%的整活需求，包括：正放倒放反复放，修改播放速度，剪辑（时间轴），裁剪（尺寸）&lt;/p>
+&lt;p>不需要的功能：滤镜。&lt;/p>
+&lt;p>缺少的功能：抽帧，逐帧选择开始和结尾，删除特定帧。&lt;/p>
+&lt;h3 id="gif-toaster和gif-cracker">&lt;strong>GIF Toaster&lt;/strong>和&lt;strong>GIF Cracker&lt;/strong>
+&lt;/h3>&lt;p>两个软件是同一个立本作者写的，但是覆盖的功能和操作的逻辑却不相同，并且有着调整了某些选项就无法正常导出的 bug。这份纠结也是让我舍弃之后转移到上述 GIF 制作器的原因。&lt;/p>
+&lt;p>Toaster 倾向于通过视频或多张图片生成 gif，但同时也支持 gif 到其他的转换，但是这个最常用的功能却藏得最深。其他从视频转换支持帧率选定，但是如果进行了剪辑或者裁剪，则无法正常导出。导致我经常需要提前在相册里裁剪好再进行编辑，或者编辑完之后用 Cracker 进行二次编辑。&lt;/p>
+&lt;p>Cracker&lt;strong>仅&lt;/strong>支持 GIF 到其他格式的处理，但是支持上述 GIF 制作器不支持的抽取或删除特定帧，以及逐帧选择范围的功能。&lt;/p>
+&lt;p>两个软件我都买断去广告了，因为实在是便宜，但是作者这个软件操作的逻辑实在是不敢恭维。&lt;/p></description></item><item><title>关于使用 ImageMagick 转换 pdf tif/tiff 至 png</title><link>https://deepseaxx.com/p/20240208-imagemagick/</link><pubDate>Thu, 08 Feb 2024 14:19:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240208-imagemagick/</guid><description>&lt;p>反正就是因为某个特殊原因，获得的文件都是用 pdf 或 tiff 格式，且大部分为矢量图。&lt;/p>
+&lt;h2 id="为什么有这样的需求">为什么有这样的需求
+&lt;/h2>&lt;p>我的需求也有很多情景，不同的需求。&lt;/p>
+&lt;ul>
+&lt;li>含有多页的 PDF/TIF 可以拆分成单个图片。
+&lt;ul>
+&lt;li>CubePDF Utility 可以实现这样的需求，但是了解后发现只能通过 UI 操作，没有很好的 CLI 支持，不适用大量转换，每次都要多次操作。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>对于不支持 tif 和 pdf 贴图（指直接复制粘贴）的 Excel，可以把整张图片直接粘贴入，并在上面添加文本框和标注。
+&lt;ul>
+&lt;li>PDF 原生支持标记，借助免费的 Sumatra 或者收费的 Acrobat 可以实现，但是考虑到其他协作人也要共同编辑，收费软件产生的花销原因排除，免费软件 Sumatra 平均操作两次就要无响应一次也可以排除。Excel 本身已经是很多公司付费软件的标配，大多数人也都熟悉基本操作，容易上手。&lt;/li>
+&lt;li>图片上直接编辑只适用于临时使用的情况，情况有变之后需要编辑就很复杂。&lt;/li>
+&lt;li>Microsoft Whiteboard 可能适合我的想法，但是暂时还没成为被微软重视的项目，总感觉会在一个半成品的停留至死，在这种兼容性很差的平台投入工作总感觉非常危险。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>从矢量图转换为位图，转换出来的文件要尽可能小。
+&lt;ul>
+&lt;li>首先源文件为矢量图只是因为特殊需求，且在这个特定需求下矢量图的尺寸相当之小。其实输出是不是矢量图没啥关系，我也希望输出是不怎么占用空间的矢量图格式。但矢量图本身也有各种种类。另外就是，&lt;a class="link" href="https://www.imagemagick.org/Usage/formats/#vector" target="_blank" rel="noopener"
+>magick 处理矢量图本身就不被推荐&lt;/a>，推荐使用专门为了矢量图设计的工具。上文中也有其他推荐，暂时还没有了解。&lt;/li>
+&lt;li>相比原图的风格，例如是否是有大片空白面积，是否黑白，是更多硬线条还是色彩丰富的风景画，jpg 和 png 的压缩方式分别适用于不同的场景，文件尺寸也有不同的表现。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="命令">命令
+&lt;/h2>&lt;h3 id="tif-to-png">tif to png
+&lt;/h3>&lt;p>先上我最常用的，tif 格式转换为 png 格式的指令。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">convert -density 144 -quality 100 -depth 8 -alpha remove -resize 50% input.tif out.png
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这是把 tif 转换为 png 的一个最常用的参数。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>-density 144&lt;/code>代表解像度。&lt;/li>
+&lt;li>&lt;code>-quality 100&lt;/code>代表压缩质量，因为这种单色图片比起压缩质量，更重要的是分辨率上的尺寸压缩，quality 本身对输出的影响很小。&lt;/li>
+&lt;li>&lt;code>-depth 8&lt;/code>就是我们说的 8bit 色深。&lt;/li>
+&lt;li>&lt;code>-alpha remove&lt;/code>指删除所有透明层，我常用到的 tiff 格式的矢量图片是透明背景，不删除透明层直接压缩成位图会变得很奇怪。&lt;/li>
+&lt;li>&lt;code>-resize 50%&lt;/code>尺寸缩放为原尺寸的 50%，因为原图一般为五位数乘四位数像素的大小，在不追求严格的场景下完全没必要，所以 50%甚至 30%都是可以的。&lt;/li>
+&lt;/ul>
+&lt;p>另外不知道 magick 内部是如何处理这些输入参数的，如果调换顺序，很有可能导致参数不起效果。我写的顺序姑且是保证所有参数都可以生效的。&lt;/p>
+&lt;h3 id="pdf-to-png">pdf to png
+&lt;/h3>&lt;p>然后是 pdf 格式转换为 png 格式。&lt;/p>
+&lt;p>pdf 格式的输入就有很多种类型了，可能是 word 或 excel 文档的导出结果，有可能是海报图片等，也有可能是跟上述 tif 相同的黑白矢量图。所以一种设置无法覆盖所有情况，根据自己需求调整。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> convert -density 300 -quality 100 -depth 8 -alpha remove -resize 30% input.pdf out.png)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;code>-density 300&lt;/code>代表解像度。相比 tif 格式的输入，pdf 内含的“图片尺寸”更小，所以用更高的解像度来保证转换足够保真。&lt;/li>
+&lt;li>&lt;code>-quality 100&lt;/code>同上&lt;/li>
+&lt;li>&lt;code>-depth 8&lt;/code>同上&lt;/li>
+&lt;li>&lt;code>-alpha remove&lt;/code>同上&lt;/li>
+&lt;li>&lt;code>-resize 30%&lt;/code>尺寸缩放为原尺寸的 30%，或自己修改为 50%，或者完全不进行 resize（删掉这一部分），像前文说的，pdf 的输入有各种各样的情况，尺寸也各有区别。&lt;/li>
+&lt;/ul>
+&lt;p>针对 pdf 的各种情景，推荐按照自己最常用的场景分别保存为不同的 bat 文件来一键执行。下一段放一下我自己（指导 ChatGPT）写的易用的批处理文件。&lt;/p>
+&lt;h2 id="批处理">批处理
+&lt;/h2>&lt;p>用刚才 pdf to png 的例子来说，在我的电脑里有这样一个结构的 convert（任意名）文件夹，内部保存了 pdf2png.bat（任意名）的批处理文件，该阶层下有 src 和 out 两个文件夹，（与 bat 内的 INPUT_DIR 和 OUTPUT_DIR 保持一致），src 存放输入文件，out 为输出位置。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">convert/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ pdf2png.bat
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─src/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ example.pdf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└─out/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> example.png
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后这是 pdf2png.bat 的内容。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">set INPUT_DIR=src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set OUTPUT_DIR=out
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set INPUT_FORMAT=pdf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set OUTPUT_FORMAT=png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">for /r &amp;#34;%INPUT_DIR%&amp;#34; %%i in (*.%INPUT_FORMAT%) do (
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> convert -density 300 -quality 100 -depth 8 -alpha remove -resize 30%% &amp;#34;%%i&amp;#34; &amp;#34;%OUTPUT_DIR%\%%~ni.%OUTPUT_FORMAT%&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>首先我没有使用&lt;code>@echo off&lt;/code>，是因为部分情况下处理过程较慢，我希望试试看见现在的进度在哪，并知道他不是卡住了。&lt;/p>
+&lt;p>开头的四行&lt;code>set 变量名=目录名&lt;/code>，谜底就在谜面上，分别对应了输入文件夹，输出文件夹，输入格式和输出格式。这样不用仔细去阅读命令内容就可以一眼看到这个 bat 文件大概的目的。&lt;/p>
+&lt;p>然后对输入文件夹内，后缀名为输入格式的文件进行循环。&lt;/p>
+&lt;p>循环的指令，便是对每一个指定的输入文件夹内的文件，输出对应格式的文件。除后缀外的其他部分与输入文件名相同。&lt;/p>
+&lt;p>同样的，复制内容，修改后缀名的变量，就可以分别为各种需求保存不同的 bat 文件了。你也可以修改 bat 文件名为对应的需求，比如&lt;code>pdf2png.bat&lt;/code>和&lt;code>pdf2png_hq.bat&lt;/code>就对应了压缩和不压缩图片尺寸的两种情况。当然这种做法有点蠢且粗暴，但我觉得还挺直观。&lt;/p></description></item><item><title>关于使用 ImageMagick 处理 apng png gif</title><link>https://deepseaxx.com/p/20240207-imagemagick/</link><pubDate>Wed, 07 Feb 2024 11:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240207-imagemagick/</guid><description>&lt;p>从某网站上偷来的表情包默认是 apng 格式，想在 QQ 里用的话默认支持非常差，一方面 iPhone 发送 apng 图片会直接变成静态，另一方面即使是支持 apng 的设备，这些图片循环次数并不是无限。所以怎么都需要修改。&lt;/p>
+&lt;p>很多不知名小公司做的软件，付费或广告，且功能不全，总感觉没法按照自己的想法处理。直接用 ImageMagick 这个开源工具来处理，而且涉及到各种参数微调的时候，个人感觉输入文本命令比 GUI 来得直观可控得多。&lt;/p>
+&lt;p>本文发布在 qiita/hatenablog。现修改后转载在自己的 blog（并方便存档）。&lt;/p>
+&lt;h2 id="静态-png-图片">静态 PNG 图片
+&lt;/h2>&lt;p>去除 png 图片的透明背景（转换为白色）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">magick mogrify -format png -alpha remove *.png
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注：mogrify 为覆盖（但后缀名不同仍然无法覆盖），convert 为输出新文件&lt;/p>
+&lt;h2 id="动态-png-图片转换为-gif">动态 PNG 图片转换为 GIF
+&lt;/h2>&lt;p>一键指令&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> magick.exe convert -format gif -set dispose Previous -layers coalesce -loop 0 apng:origin.png test.gif
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>拆解：&lt;/p>
+&lt;ul>
+&lt;li>-formart gif：转换为 gif 格式&lt;/li>
+&lt;li>-set dispose Previous 重置 dispose 选项，并设置为“Previoius”模式，详细看这里&lt;a class="link" href="https://legacy.imagemagick.org/script/command-line-options.php?#dispose" target="_blank" rel="noopener"
+>ImageMagick （legacy） – 命令行选项&lt;/a>&lt;/li>
+&lt;li>-layers coalesce 让 gif 变成类似胶片的模式，虽然没看懂但是……加了这个之后突然就好了，说明在这里 &lt;a class="link" href="https://legacy.imagemagick.org/script/command-line-options.php?#layers" target="_blank" rel="noopener"
+>ImageMagick （legacy） – 命令行选项&lt;/a>&lt;/li>
+&lt;li>-loop 0 ：修改循环次数为无限&lt;/li>
+&lt;li>apng: ：动态 png 强制以 apng 格式读取，否则将认作静态 png 处理&lt;/li>
+&lt;/ul>
+&lt;h2 id="批量处理">批量处理
+&lt;/h2>&lt;p>本来想用 shell，后来发现想要做的循环和判断几乎可以在一行里解决。
+由于忘了当时我用的是 powershell 还是 wsl，后面再补充保存为批处理文件的方法。
+那么先上一行流。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> ls ./apng |awk -F &amp;#34;.png&amp;#34; &amp;#39;{print $1}&amp;#39; |xargs -I {} magick.exe convert -format gif -set dispose Previous -layers coalesce -loop 0 apng:./apng/{}.png ./gif/{}.gif
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>拆解&lt;/p>
+&lt;ul>
+&lt;li>ls ./apng 打印目录下文件&lt;/li>
+&lt;li>awk -F &amp;ldquo;.png&amp;rdquo; &amp;lsquo;{print $1}&amp;rsquo;：以.png 为分隔符切割前一步输出，并打印第一个区块（这里顺便起到了 grep 的作用，但是总感觉可以用 ls 解决……）&lt;/li>
+&lt;li>xargs -I {}：将前文输出内容多次使用 例如后面 ./apng/{}.png ./gif/{}.gif，就使用了文件名两次，来分别制定原文件名和输出文件名。&lt;/li>
+&lt;/ul>
+&lt;h3 id="想要保存下来一键执行">想要保存下来一键执行
+&lt;/h3>&lt;p>微软辛辛苦苦开发了 powershell，那当然是想用 powershell 对应的 ps1 来执行了。但是 ps1 默认需要右键执行，分享给小白难免会有“这怎么用”的问题。&lt;/p>
+&lt;p>于是在不考虑执行效率和优雅程度，同时为了利用 powershell 一些方便的指令，单纯为了强行把他变成大家都熟悉的.bat 格式，可以这么写指令。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">powershell -command &amp;#34;$a = Get-Clipboard;$a=&amp;#39;&amp;#34;&amp;#39;+$a.replace(&amp;#39;/&amp;#39;,&amp;#39;\&amp;#39;)+&amp;#39;&amp;#34;&amp;#39;; explorer($a)&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>引号内部替换为想执行的 powershell 指令即可。&lt;/p>
+&lt;p>这里的示例是在资源管理器中打开粘贴板中的文件目录。&lt;/p>
+&lt;p>因为某些奇怪的原因现在用得非常多。&lt;/p>
+&lt;h2 id="参考">参考
+&lt;/h2>&lt;p>&lt;a class="link" href="https://imagemagick.org/script/mogrify.php" target="_blank" rel="noopener"
+>ImageMagick – Command-line Tools: Mogrify&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.bilibili.com/read/cv362796" target="_blank" rel="noopener"
+>提取与优化 Line 贴图的正确姿势 - 哔哩哔哩&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/ImageMagick/ImageMagick/discussions/3846" target="_blank" rel="noopener"
+>Can I use ImageMagick to convert Animated PNG (APNG) into animated WEBP format? · Discussion #3846 · ImageMagick/ImageMagick&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://imagemagick.org/script/formats.php" target="_blank" rel="noopener"
+>ImageMagick – Image Formats&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.cnblogs.com/qkshhan/p/16202931.html" target="_blank" rel="noopener"
+>为什么有的 GIF 图片只会播放一遍，而有的会重复播放？关于 gif 你想知道的一切！ - 轻狂书生 han - 博客园&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://legacy.imagemagick.org/Usage/anim_basics/#previous" target="_blank" rel="noopener"
+>Animation Basics &amp;ndash; IM v6 Examples&lt;/a>&lt;/p></description></item><item><title>自己总结的好用小工具</title><link>https://deepseaxx.com/p/20240207-useful-tools/</link><pubDate>Wed, 07 Feb 2024 11:53:00 +0900</pubDate><guid>https://deepseaxx.com/p/20240207-useful-tools/</guid><description>&lt;h2 id="一覧">一覧
+&lt;/h2>&lt;ul>
+&lt;li>PowerToys
+&lt;ul>
+&lt;li>Fancyzone&lt;/li>
+&lt;li>PowerToys Run&lt;/li>
+&lt;li>Preview&lt;/li>
+&lt;li>Mouse Utility&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>VSCode&lt;/li>
+&lt;li>CubePDF
+&lt;ul>
+&lt;li>Utilities&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Snipaste
+&lt;ul>
+&lt;li>商用可能なのは Snipaste 1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autohotkey&lt;/li>
+&lt;li>Quickswitch
+&lt;ul>
+&lt;li>Library の機能を持ち出し&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Everything
+&lt;ul>
+&lt;li>1.5a の alpha 版&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>magick&lt;/li>
+&lt;li>CopyQ&lt;/li>
+&lt;/ul>
+&lt;h2 id="簡単紹介">簡単紹介
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/microsoft/PowerToys" target="_blank" rel="noopener"
+>PowerToys&lt;/a>（MS 社が開発したツール集）&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Fancyzone：自分が設定したレイアウトで画面の配置が可能&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>PowerToys Run：Alt+space で入力バーを起動し
+○ 電卓、単位変換、日付時間コピー
+○ ファイル・フォルダー・ソフトの起動
+○ PC のシャットダウン・スリープ&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Preview：ファイル開かずに、覗き見ができる&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mouse Utility：マウス位置の特定、クリック蛍光ペン&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Text Extractor：画像にあるテキストをコピー&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Awake：ずっと電源オン状態で保持可能&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Power Rename：ファイル名を正規表現で一括変更&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Text Extrator：画面文字 OCR&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Borderless Mouse：複数のパソコンを一つのマウスでコントロール&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://code.visualstudio.com/" target="_blank" rel="noopener"
+>VSCode&lt;/a>：多分いう必要のない、すべてのコーディングと文字ファイル処理に向いている&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.cube-soft.jp/cubepdf/" target="_blank" rel="noopener"
+>CubePDF&lt;/a>：無料ソフト、PDF の編集、画像から PDF の変換&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.snipaste.com/download.html" target="_blank" rel="noopener"
+>Snipaste&lt;/a>：スクリーンショットと編集&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;pre>&lt;code>無料で商用可能なのはバージョン1
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.autohotkey.com/" target="_blank" rel="noopener"
+>autohotkey&lt;/a>：いくつかの動作をスクリプトとして作成、ショートキーより呼び出し可能、プログラミング能力必要&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/gepruts/QuickSwitch/tree/main" target="_blank" rel="noopener"
+>Quickswitch&lt;/a>：Library の機能で、ポップアップ画面で素早くフォルダー間移動&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.voidtools.com/forum/viewtopic.php?t=9787" target="_blank" rel="noopener"
+>Everything&lt;/a>：一瞬でファイル特定ができる&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;ul>
+&lt;li>1.5a の alpha 版があり、新しい機能が追加されている&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://imagemagick.org/script/download.php" target="_blank" rel="noopener"
+>magick&lt;/a>：コマンドラインで画像の変換ができる&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/hluk/CopyQ" target="_blank" rel="noopener"
+>CopyQ&lt;/a>：コピーした内容の履歴が残る、アイテムを固定してダブルクリック入力ができる&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

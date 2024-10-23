@@ -1,0 +1,138 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="遇到了一个需要在 Excel 表格里，判断背景色是否大概是红色的问题……"><title>关于研究如何用 Python 判断他是个红色</title>
+<link rel=canonical href=https://deepseaxx.com/p/20240301-isred/><link rel=stylesheet href=/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css><meta property='og:title' content="关于研究如何用 Python 判断他是个红色"><meta property='og:description' content="遇到了一个需要在 Excel 表格里，判断背景色是否大概是红色的问题……"><meta property='og:url' content='https://deepseaxx.com/p/20240301-isred/'><meta property='og:site_name' content="DeepseaXX's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='color'><meta property='article:tag' content='image'><meta property='article:tag' content='python'><meta property='article:tag' content='colorsys'><meta property='article:tag' content='openpyxl'><meta property='article:published_time' content='2024-03-01T11:00:00+09:00'><meta property='article:modified_time' content='2024-03-01T11:00:00+09:00'><meta name=twitter:title content="关于研究如何用 Python 判断他是个红色"><meta name=twitter:description content="遇到了一个需要在 Excel 表格里，判断背景色是否大概是红色的问题……"><link rel="shortcut icon" href=/img/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu11496759015997567763.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>😎</span></figure><div class=site-meta><h1 class=site-name><a href=/>DeepseaXX's Blog</a></h1><h2 class=site-description>Write some random hitorigoto.</h2></div></header><ol class=menu-social><li><a href=https://github.com/DeepseaXX/ target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#背景>背景</a></li><li><a href=#红色>红色</a></li><li><a href=#色彩空间的转换>色彩空间的转换</a></li><li><a href=#hsv>hsv</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/exp/>EXP</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/20240301-isred/>关于研究如何用 Python 判断他是个红色</a></h2><h3 class=article-subtitle>遇到了一个需要在 Excel 表格里，判断背景色是否大概是红色的问题……</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Mar 01, 2024</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer></div></header><section class=article-content><h2 id=背景>背景</h2><p>在这之前，遇到的是一个处理奇形怪状的 Excel，并把结果以整理后的格式输出的问题。使用 Python 的 openpyxl，和 Python 那个基本不用过脑子的语法，（但强忍着对游标卡尺的恶心）走迷宫一样探索完了那个奇形怪状的表格。到这为止，基本都靠 ChatGPT 和 bing 搜索（别问为什么不用谷歌，凑积分罢了）就能解决问题。</p><p>然后就遇到了究极坑点。Excel 表格的上游，是通过单元格的背景颜色填充，来做一个维度的区分的……</p><p>而且这个上游部门，经常做一些突然就变了的事情，没有提前通知和商量其他部门的交接，就变了，给别的部门本来的工作方法带来了巨大的冲击。很多对接用的系统，都是已经异动到其他部门的前辈用你不熟悉的语言（VBA）写的，可维护性基本等于零。而且不去主动问，基本不会主动给你提供详细的情报，只能去猜。</p><h2 id=红色>红色</h2><p>总之经历过了上述问题，答案最终变成了如何识别红色。</p><p>当然标准的红色 rgb(255,0,0)已经是一个==就能判断的程度了。问题就是上游部门的任性程度，会不会在未来的某一天，突然决定用深红和浅红来再做进一步区分呢。</p><p>rgb 值虽然简单易懂，但是红绿蓝三个数字的单纯组合，对我这种色彩感知仅有平均普通人水平的人来说，其实非常难以理解。我曾经想少点处理，直接用 R 和 G、B 的差值，R 和 GB 平均值的差值，G 和 B 的差值来粗暴判断，但是！RGB 的增减不是线性变化（或者说不够均匀？），想尽可能判断更多细枝末节（比如 R 值偏低的时候，和 GB 之间的差值也要变化），表达式越来越迷乱，我在 and 和 or 的泥沼中爬向了据说更加现代直观的 hsv 色彩空间。</p><h2 id=色彩空间的转换>色彩空间的转换</h2><p>用现成的库肯定是最好的嘛。我选择了 python 标准的 colorsys。</p><p>首先 colorsys 除了某一个（忘记哪个了，反正我没用到）之外，取值的范围都在[0,1]之间，所以相应的，以 0 到 255 为取值范围的 rgb，或者写成 16 进制格式的 rgb，或者 hsv 等 h 值在 0 到 360 之间的，都需要做一步除法，来转换成 colorsys 所认同的格式。反之转换后的结果，也需要乘法来复原。</p><p>其次，通过 openpyxl 读取来的 Excel 单元格色彩值，是四位的 0 到 255 之间的值。例如 rgb(255,0,0)，直接读取出来是“FFFF0000”其中第一位的 FF，我也不知道是啥，大概是透明度之类的玩意，总之暂时用不太到。想要用 colorsys 做下一步处理，就得把这字符串的 RGB 的部分先取出来，再进行进制转化。</p><h2 id=hsv>hsv</h2><p>哈哈，hsv，色相饱和度明度。确实很直观。本来以为只要判断 h 的范围就够了，然后发现在明度高，或饱和度低的时候，颜色会趋近于黑灰白，不过这总比 rgb 简略多了。最后我写的判断式是</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>return (hsv[0] &lt;= 14/360 or 343/360 &lt;= hsv[0]) and (hsv[1] &gt; 0.33) and (hsv[2] &gt; 0.5) and hsv[1]*hsv[2] &gt; 0.36
+</span></span></code></pre></td></tr></table></div></div><p><code>hsv[0]</code>，也就是 h，在更广泛的领域里是 0-360 的范围里取值。在 Python 的 colorsys 里面，只有[0,1]的范围。那就简单变换。</p><p>其他就很简单了，s 和 v 单独不低于阈值，且乘积不低于阈值。基本可以覆盖对于单独一个 h 值下的情况了。</p><p>最后为了直观，把遍历 hsv 色彩空间之后，根据我的函数判断是否为 red 的结果，直接输出在 Excel 里面。有兴趣的可以自己试试看。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>from openpyxl import Workbook
+</span></span><span class=line><span class=cl>from openpyxl.styles import PatternFill
+</span></span><span class=line><span class=cl>from colorsys import rgb_to_hsv, hsv_to_rgb
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>def decimal_to_hex_string(decimal_value):
+</span></span><span class=line><span class=cl>    decimal_value %= 256
+</span></span><span class=line><span class=cl>    hex_value = hex(decimal_value)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    hex_string = str(hex_value)[2:].zfill(2)
+</span></span><span class=line><span class=cl>    return hex_string
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>def hex_string_to_decimal(hex_string):
+</span></span><span class=line><span class=cl>    decimal_value = int(hex_string, 16)
+</span></span><span class=line><span class=cl>    return decimal_value
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>def is_rgb_string_red(rgb_string):
+</span></span><span class=line><span class=cl>    # solid: rgb_string[0:2]
+</span></span><span class=line><span class=cl>    if len(rgb_string) == 6:
+</span></span><span class=line><span class=cl>        rgb_string = &#34;ff&#34;+rgb_string
+</span></span><span class=line><span class=cl>    red = hex_string_to_decimal(rgb_string[2:4])
+</span></span><span class=line><span class=cl>    green = hex_string_to_decimal(rgb_string[4:6])
+</span></span><span class=line><span class=cl>    blue = hex_string_to_decimal(rgb_string[6:8])
+</span></span><span class=line><span class=cl>    hsv = rgb_to_hsv(red/256, green/256, blue/256)
+</span></span><span class=line><span class=cl>    # print(hsv[0], hsv[1], hsv[2])
+</span></span><span class=line><span class=cl>    return (hsv[0] &lt;= 14/360 or 343/360 &lt;= hsv[0]) and (hsv[1] &gt; 0.33) and (hsv[2] &gt; 0.5) and hsv[1]*hsv[2] &gt; 0.36
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># color判断結果表作成
+</span></span><span class=line><span class=cl>wb = Workbook()
+</span></span><span class=line><span class=cl>ws = wb.active
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># カウント
+</span></span><span class=line><span class=cl>i = 0
+</span></span><span class=line><span class=cl>for h in range(0, 100, 1):
+</span></span><span class=line><span class=cl>    h = (h+90) % 100
+</span></span><span class=line><span class=cl>    for s in range(30, 100, 5):
+</span></span><span class=line><span class=cl>        for v in range(30, 100, 5):
+</span></span><span class=line><span class=cl>            # 一行の列数
+</span></span><span class=line><span class=cl>            width = int((100-30)/5)
+</span></span><span class=line><span class=cl>            # hsvからrgbフォーマットに変換
+</span></span><span class=line><span class=cl>            # colorsysの範囲は0~1
+</span></span><span class=line><span class=cl>            rgb = hsv_to_rgb(h/100, s/100, v/100)
+</span></span><span class=line><span class=cl>            rgb_string = decimal_to_hex_string(int(rgb[0]*256)) + decimal_to_hex_string(
+</span></span><span class=line><span class=cl>                int(rgb[1]*256))+decimal_to_hex_string(int(rgb[2]*256))
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            ws.cell(row=int(i/width)+1, column=i %
+</span></span><span class=line><span class=cl>                    width+1).fill = PatternFill(&#34;solid&#34;, fgColor=rgb_string)
+</span></span><span class=line><span class=cl>            result = is_rgb_string_red(rgb_string)
+</span></span><span class=line><span class=cl>            if result:
+</span></span><span class=line><span class=cl>                ws.cell(row=int(i/width)+1, column=i %
+</span></span><span class=line><span class=cl>                        width+1).value = str(result)
+</span></span><span class=line><span class=cl>            i += 1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>wb.close()
+</span></span><span class=line><span class=cl>wb.save(&#39;info/color.xlsx&#39;)
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/color/>Color</a>
+<a href=/tags/image/>Image</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/colorsys/>Colorsys</a>
+<a href=/tags/openpyxl/>Openpyxl</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/20240212-ios-images/><div class=article-details><h2 class=article-title>iOS 上个人比较常用的修图改图作图 APP</h2></div></a></article><article><a href=/p/20240208-imagemagick/><div class=article-details><h2 class=article-title>关于使用 ImageMagick 转换 pdf tif/tiff 至 png</h2></div></a></article><article><a href=/p/20241023-workingcopy/><div class=article-details><h2 class=article-title>Working Copy，一个 iOS 上的 Git App</h2></div></a></article><article><a href=/p/20240823-bookmarklet-copy/><div class=article-details><h2 class=article-title>在 Bookmarklet 中实现复制时</h2></div></a></article><article><a href=/p/20240823-folderwithspace/><div class=article-details><h2 class=article-title>文件夹操作时提示找不到文件夹，文件名最后一位是空格时的对应方法</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=DeepseaXX/DeepseaXX.github.io data-repo-id=R_kgDOLO9jqg data-category="Show and tell" data-category-id=DIC_kwDOLO9jqs4CdLAE data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=noborder_light data-lang=zh-CN crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"noborder_light":"noborder_dark")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2024 DeepseaXX's Blog</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.26.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
