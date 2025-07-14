@@ -8,9 +8,11 @@ categories:
 tags:
   - Emby
 ---
-# 写在前
-面
+
+# 写在前面
+
 感谢
+
 - [Shurelol/Emby.CustomCssJS: Easy to manage your Custom JavaScript and Css to modify Emby](https://github.com/Shurelol/Emby.CustomCssJS/tree/main)
 - [chen3861229/dd-danmaku: Emby danmaku extension](https://github.com/chen3861229/dd-danmaku)
 
