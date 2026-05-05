@@ -4,9 +4,9 @@ description: 自己折腾了一顿自己也忘了，记录一下。
 slug: 20260505-jekyll
 date: 2026-05-05 04:23:00+0900
 categories:
-  - EXP
+  + EXP
 tags:
-  - Jekyll
+  + Jekyll
 ---
 
 今天突发奇想折腾了一下我的另一个小站子。在时间过了零点之后，那两篇文章迟迟没更新。

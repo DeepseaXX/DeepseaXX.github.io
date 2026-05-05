@@ -4,10 +4,10 @@ description:
 slug: 20240814-esxi-windows
 date: 2024-08-14 12:00:00+0900
 categories:
-  - EXP
+  + EXP
 tags:
-  - ESXi
-  - Windows 11
+  + ESXi
+  + Windows 11
 ---
 
 由于用 Debian 怎么都折腾不好 LLOnebot 和 Koishi 的联动，转投 Win11。
@@ -15,7 +15,7 @@ tags:
 
 ## 镜像下载
 
-官网或者[UUP dump](https://uupdump.net/)下载 ISO 镜像。后者可以定制，但是需要自己电脑跑挺久的。我自己勾选了运行组件清理、集成.NET3.5 和固实压缩，总共花费了 30 分钟左右。
+官网或者[UUP dump](https://uupdump.net/)下载 ISO 镜像。后者可以定制，但是需要自己电脑跑挺久的。我自己勾选了运行组件清理、集成. NET3.5 和固实压缩，总共花费了 30 分钟左右。
 
 创建完成后在脚本同目录出现了.iso 文件，把他上载进 ESXi 的数据存储中。
 
@@ -34,7 +34,7 @@ tags:
 
 省流版：在出现“现在安装”的界面，按下 `Shift+F10` 呼出命令行，输入
 
-`REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1`
+ `REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1`
 
 ESXi 网页控制台默认不开启复制粘贴功能，需要参考[这篇文章](https://blog.exsvc.cn/article/esxi-enable-clipboard-copy-paste.html)。
 以及右侧 Shift 没用，需要注意。

@@ -4,10 +4,10 @@ description: 纯总结
 slug: 20240823-bookmarklet-copy
 date: 2024-08-23 16:30:00+0900
 categories:
-  - EXP
+  + EXP
 tags:
-  - Javascript
-  - Bookmarklet
+  + Javascript
+  + Bookmarklet
 ---
 
 以前我抄了一段代码是这样的 ↓
@@ -20,7 +20,7 @@ javascript: (function () { let path = "C:/BoxDrive/Box/"; const dotButton = docu
 
 前面的部分跟这次的主题无关，反正就是从网页的某个元素里获得每一个内容物，并依次添加到字符串中，再继续从另一个元素中获得每个内容添加到字符串里，缝合成一个可以本地访问的绝对路径。
 
-然后下一步，把这个绝对路径复制到剪贴板，这段代码的实现方式是`function (a)`内部，在网页上创建一个元素，通过`document.execCommand("copy")`复制这个元素的内容，再删掉这个元素。
+然后下一步，把这个绝对路径复制到剪贴板，这段代码的实现方式是 `function (a)` 内部，在网页上创建一个元素，通过 `document.execCommand("copy")` 复制这个元素的内容，再删掉这个元素。
 
 这个方法在我和大部分人的电脑上还是可行的，直到有人说，在他的电脑上 Edge 执行不了，Chrome 可以执行。
 

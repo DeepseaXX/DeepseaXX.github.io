@@ -4,13 +4,13 @@ description: 遇到了一个需要在 Excel 表格里，判断背景色是否大
 slug: 20240301-isred
 date: 2024-03-01 11:00:00+0900
 categories:
-  - EXP
+  + EXP
 tags:
-  - color
-  - image
-  - python
-  - colorsys
-  - openpyxl
+  + color
+  + image
+  + python
+  + colorsys
+  + openpyxl
 ---
 
 ## 背景
@@ -25,7 +25,7 @@ tags:
 
 总之经历过了上述问题，答案最终变成了如何识别红色。
 
-当然标准的红色 rgb(255,0,0)已经是一个==就能判断的程度了。问题就是上游部门的任性程度，会不会在未来的某一天，突然决定用深红和浅红来再做进一步区分呢。
+当然标准的红色 rgb(255, 0, 0)已经是一个==就能判断的程度了。问题就是上游部门的任性程度，会不会在未来的某一天，突然决定用深红和浅红来再做进一步区分呢。
 
 rgb 值虽然简单易懂，但是红绿蓝三个数字的单纯组合，对我这种色彩感知仅有平均普通人水平的人来说，其实非常难以理解。我曾经想少点处理，直接用 R 和 G、B 的差值，R 和 GB 平均值的差值，G 和 B 的差值来粗暴判断，但是！RGB 的增减不是线性变化（或者说不够均匀？），想尽可能判断更多细枝末节（比如 R 值偏低的时候，和 GB 之间的差值也要变化），表达式越来越迷乱，我在 and 和 or 的泥沼中爬向了据说更加现代直观的 hsv 色彩空间。
 
@@ -33,9 +33,9 @@ rgb 值虽然简单易懂，但是红绿蓝三个数字的单纯组合，对我�
 
 用现成的库肯定是最好的嘛。我选择了 python 标准的 colorsys。
 
-首先 colorsys 除了某一个（忘记哪个了，反正我没用到）之外，取值的范围都在[0,1]之间，所以相应的，以 0 到 255 为取值范围的 rgb，或者写成 16 进制格式的 rgb，或者 hsv 等 h 值在 0 到 360 之间的，都需要做一步除法，来转换成 colorsys 所认同的格式。反之转换后的结果，也需要乘法来复原。
+首先 colorsys 除了某一个（忘记哪个了，反正我没用到）之外，取值的范围都在[0, 1]之间，所以相应的，以 0 到 255 为取值范围的 rgb，或者写成 16 进制格式的 rgb，或者 hsv 等 h 值在 0 到 360 之间的，都需要做一步除法，来转换成 colorsys 所认同的格式。反之转换后的结果，也需要乘法来复原。
 
-其次，通过 openpyxl 读取来的 Excel 单元格色彩值，是四位的 0 到 255 之间的值。例如 rgb(255,0,0)，直接读取出来是“FFFF0000”其中第一位的 FF，我也不知道是啥，大概是透明度之类的玩意，总之暂时用不太到。想要用 colorsys 做下一步处理，就得把这字符串的 RGB 的部分先取出来，再进行进制转化。
+其次，通过 openpyxl 读取来的 Excel 单元格色彩值，是四位的 0 到 255 之间的值。例如 rgb(255, 0, 0)，直接读取出来是“FFFF0000”其中第一位的 FF，我也不知道是啥，大概是透明度之类的玩意，总之暂时用不太到。想要用 colorsys 做下一步处理，就得把这字符串的 RGB 的部分先取出来，再进行进制转化。
 
 ## hsv
 
@@ -45,7 +45,7 @@ rgb 值虽然简单易懂，但是红绿蓝三个数字的单纯组合，对我�
 return (hsv[0] <= 14/360 or 343/360 <= hsv[0]) and (hsv[1] > 0.33) and (hsv[2] > 0.5) and hsv[1]*hsv[2] > 0.36
 ```
 
-`hsv[0]`，也就是 h，在更广泛的领域里是 0-360 的范围里取值。在 Python 的 colorsys 里面，只有[0,1]的范围。那就简单变换。
+`hsv[0]` ，也就是 h，在更广泛的领域里是 0-360 的范围里取值。在 Python 的 colorsys 里面，只有[0, 1]的范围。那就简单变换。
 
 其他就很简单了，s 和 v 单独不低于阈值，且乘积不低于阈值。基本可以覆盖对于单独一个 h 值下的情况了。
 
@@ -63,11 +63,9 @@ def decimal_to_hex_string(decimal_value):
     hex_string = str(hex_value)[2:].zfill(2)
     return hex_string
 
-
 def hex_string_to_decimal(hex_string):
     decimal_value = int(hex_string, 16)
     return decimal_value
-
 
 def is_rgb_string_red(rgb_string):
     # solid: rgb_string[0:2]
@@ -105,7 +103,6 @@ for h in range(0, 100, 1):
                 ws.cell(row=int(i/width)+1, column=i %
                         width+1).value = str(result)
             i += 1
-
 
 wb.close()
 wb.save('info/color.xlsx')

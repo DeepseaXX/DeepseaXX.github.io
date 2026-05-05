@@ -4,9 +4,9 @@ description: 使用 ImageMagick 进行 apng png gif格式的各种转换和处�
 date: 2024-02-07 11:53:00+0900
 slug: 20240207-imagemagick
 categories:
-  - EXP
+  + EXP
 tags:
-  - ImageMagick
+  + ImageMagick
 ---
 
 从某网站上偷来的表情包默认是 apng 格式，想在 QQ 里用的话默认支持非常差，一方面 iPhone 发送 apng 图片会直接变成静态，另一方面即使是支持 apng 的设备，这些图片循环次数并不是无限。所以怎么都需要修改。
@@ -35,11 +35,11 @@ magick mogrify -format png -alpha remove *.png
 
 拆解：
 
-- -formart gif：转换为 gif 格式
-- -set dispose Previous 重置 dispose 选项，并设置为“Previoius”模式，详细看这里[ImageMagick （legacy） – 命令行选项](https://legacy.imagemagick.org/script/command-line-options.php?#dispose)
-- -layers coalesce 让 gif 变成类似胶片的模式，虽然没看懂但是……加了这个之后突然就好了，说明在这里 [ImageMagick （legacy） – 命令行选项](https://legacy.imagemagick.org/script/command-line-options.php?#layers)
-- -loop 0 ：修改循环次数为无限
-- apng: ：动态 png 强制以 apng 格式读取，否则将认作静态 png 处理
+* -formart gif：转换为 gif 格式
+* -set dispose Previous 重置 dispose 选项，并设置为“Previoius”模式，详细看这里[ImageMagick （legacy） – 命令行选项](https://legacy.imagemagick.org/script/command-line-options.php?#dispose)
+* -layers coalesce 让 gif 变成类似胶片的模式，虽然没看懂但是……加了这个之后突然就好了，说明在这里 [ImageMagick （legacy） – 命令行选项](https://legacy.imagemagick.org/script/command-line-options.php?#layers)
+* -loop 0 ：修改循环次数为无限
+* apng: ：动态 png 强制以 apng 格式读取，否则将认作静态 png 处理
 
 ## 批量处理
 
@@ -53,9 +53,9 @@ magick mogrify -format png -alpha remove *.png
 
 拆解
 
-- ls ./apng 打印目录下文件
-- awk -F ".png" '{print $1}'：以.png 为分隔符切割前一步输出，并打印第一个区块（这里顺便起到了 grep 的作用，但是总感觉可以用 ls 解决……）
-- xargs -I {}：将前文输出内容多次使用 例如后面 ./apng/{}.png ./gif/{}.gif，就使用了文件名两次，来分别制定原文件名和输出文件名。
+* ls ./apng 打印目录下文件
+* awk -F ".png" '{print $1}'：以.png 为分隔符切割前一步输出，并打印第一个区块（这里顺便起到了 grep 的作用，但是总感觉可以用 ls 解决……）
+* xargs -I {}：将前文输出内容多次使用 例如后面 ./apng/{}.png ./gif/{}.gif，就使用了文件名两次，来分别制定原文件名和输出文件名。
 
 ### 想要保存下来一键执行
 

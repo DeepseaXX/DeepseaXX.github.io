@@ -4,15 +4,15 @@ description: 很久之前就用过 Obsidian ，绕了一大圈最终还是回来
 slug: 20240313-obsidian
 date: 2024-03-01 11:00:00+0900
 categories:
-  - EXP
+  + EXP
 tags:
-  - obsidian
-  - memo
-  - OneNote
-  - Logseq
-  - VSCode
-  - markdown
-  - Foam
+  + obsidian
+  + memo
+  + OneNote
+  + Logseq
+  + VSCode
+  + markdown
+  + Foam
 ---
 
 ## 前言

@@ -4,39 +4,42 @@ description: 自己折腾了一顿自己也忘了，记录一下。
 slug: 20250714-emby-danmaku
 date: 2025-07-14 22:27:00+0900
 categories:
-  - EXP
+  + EXP
 tags:
-  - Emby
+  + Emby
 ---
 
 # 写在前面
 
 感谢
 
-- [Shurelol/Emby.CustomCssJS: Easy to manage your Custom JavaScript and Css to modify Emby](https://github.com/Shurelol/Emby.CustomCssJS/tree/main)
-- [chen3861229/dd-danmaku: Emby danmaku extension](https://github.com/chen3861229/dd-danmaku)
-
+* [Shurelol/Emby. CustomCssJS: Easy to manage your Custom JavaScript and Css to modify Emby](https://github.com/Shurelol/Emby.CustomCssJS/tree/main)
+* [chen3861229/dd-danmaku: Emby danmaku extension](https://github.com/chen3861229/dd-danmaku)
 
 ## 步骤
+
 ### 1. 安装 CustomCssJS
 
    #### 1.1 下载 `CustomCssJS.js` 和 `Emby.CustomCssJS.dll`
-   `https://github.com/Shurelol/Emby.CustomCssJS/releases`
+
+ `https://github.com/Shurelol/Emby.CustomCssJS/releases`
+
    #### 1.2 修改后端（服务端）
-   复制`src\Emby.CustomCssJS.dll`到`programdata\plugins`
+   复制 `src\Emby.CustomCssJS.dll` 到 `programdata\plugins`
+
    #### 1.3 修改桌面客户端
-   复制`src\CustomCssJS.js`到`electronapp\plugins`
+   复制 `src\CustomCssJS.js` 到 `electronapp\plugins`
 
 ### 2. 安装 dd-danmaku 到服务端
 
-- 找到`服务端`的 CustomCssJS Provider 插件设置
-- 添加`自定义 JavaScript`，把`ede.js`的内容粘贴进去，并设置为开启
+* 找到`服务端`的 CustomCssJS Provider 插件设置
+* 添加`自定义 JavaScript`，把`ede.js`的内容粘贴进去，并设置为开启
 
-`https://github.com/chen3861229/dd-danmaku/blob/main/ede.js`
+ `https://github.com/chen3861229/dd-danmaku/blob/main/ede.js`
 
 ### 3. 在客户端启动启动
 
-- 在用户首选项的 `Custom Css and JavaScript` 中 `自定义JavaScript` 启动 `ede.js`
+* 在用户首选项的 `Custom Css and JavaScript` 中 `自定义JavaScript` 启动 `ede.js`
 
 ### 4. 查看是否正常运行
 
@@ -99,7 +102,6 @@ tags:
   "danmakuCustomePosterImgUrl": "https://img.dandanplay.net/anime/${animeId}.jpg"
 }
 ```
-
 
 ## 貌似是已知问题
 
