@@ -39,7 +39,7 @@ tags:
 
 ### 3. 在客户端启动启动
 
-* 在用户首选项的 `Custom Css and JavaScript` 中 `自定义JavaScript` 启动 `ede.js`
+* 在用户首选项的 `Custom Css and JavaScript` 中 `自定义 JavaScript` 启动 `ede.js`
 
 ### 4. 查看是否正常运行
 

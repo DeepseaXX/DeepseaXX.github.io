@@ -1,6 +1,6 @@
 ---
 title: 把 Cubox 扔了，转移 Omnivore 记
-description: 虽然功能比较简单，但是已经足够。并且免费且可以与Obsidian联动……
+description: 虽然功能比较简单，但是已经足够。并且免费且可以与 Obsidian 联动……
 slug: 20240313-omnivore
 date: 2024-03-13 12:00:00+0900
 categories:
@@ -12,7 +12,7 @@ tags:
   + Logseq
 ---
 
-在记录完[使用 Cubox 免费版的心得](https://deepseaxx.com/p/20240229-cubox/)之后，我还是觉得 cubox 的痛点非常不爽，并继续寻找之路。最后找到了一款在各方面知名度远不如 cubox 等类似软件，但用起来非常满意的的一款免费网页裁剪+阅读列表, [Omnivore](https://omnivore.app/home)。
+在记录完 [使用 Cubox 免费版的心得](https://deepseaxx.com/p/20240229-cubox/) 之后，我还是觉得 cubox 的痛点非常不爽，并继续寻找之路。最后找到了一款在各方面知名度远不如 cubox 等类似软件，但用起来非常满意的的一款免费网页裁剪+阅读列表，[Omnivore](https://omnivore.app/home)。
 
 ## 上手
 

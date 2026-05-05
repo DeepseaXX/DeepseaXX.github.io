@@ -1,6 +1,6 @@
 ---
 title: 关于使用 ImageMagick 处理 apng png gif
-description: 使用 ImageMagick 进行 apng png gif格式的各种转换和处理
+description: 使用 ImageMagick 进行 apng png gif 格式的各种转换和处理
 date: 2024-02-07 11:53:00+0900
 slug: 20240207-imagemagick
 categories:
@@ -36,7 +36,7 @@ magick mogrify -format png -alpha remove *.png
 拆解：
 
 * -formart gif：转换为 gif 格式
-* -set dispose Previous 重置 dispose 选项，并设置为“Previoius”模式，详细看这里[ImageMagick （legacy） – 命令行选项](https://legacy.imagemagick.org/script/command-line-options.php?#dispose)
+* -set dispose Previous 重置 dispose 选项，并设置为“Previoius”模式，详细看这里 [ImageMagick （legacy） – 命令行选项](https://legacy.imagemagick.org/script/command-line-options.php?#dispose)
 * -layers coalesce 让 gif 变成类似胶片的模式，虽然没看懂但是……加了这个之后突然就好了，说明在这里 [ImageMagick （legacy） – 命令行选项](https://legacy.imagemagick.org/script/command-line-options.php?#layers)
 * -loop 0 ：修改循环次数为无限
 * apng: ：动态 png 强制以 apng 格式读取，否则将认作静态 png 处理
@@ -54,14 +54,14 @@ magick mogrify -format png -alpha remove *.png
 拆解
 
 * ls ./apng 打印目录下文件
-* awk -F ".png" '{print $1}'：以.png 为分隔符切割前一步输出，并打印第一个区块（这里顺便起到了 grep 的作用，但是总感觉可以用 ls 解决……）
+* awk -F ".png" '{print $1}'：以。png 为分隔符切割前一步输出，并打印第一个区块（这里顺便起到了 grep 的作用，但是总感觉可以用 ls 解决……）
 * xargs -I {}：将前文输出内容多次使用 例如后面 ./apng/{}.png ./gif/{}.gif，就使用了文件名两次，来分别制定原文件名和输出文件名。
 
 ### 想要保存下来一键执行
 
 微软辛辛苦苦开发了 powershell，那当然是想用 powershell 对应的 ps1 来执行了。但是 ps1 默认需要右键执行，分享给小白难免会有“这怎么用”的问题。
 
-于是在不考虑执行效率和优雅程度，同时为了利用 powershell 一些方便的指令，单纯为了强行把他变成大家都熟悉的.bat 格式，可以这么写指令。
+于是在不考虑执行效率和优雅程度，同时为了利用 powershell 一些方便的指令，单纯为了强行把他变成大家都熟悉的。bat 格式，可以这么写指令。
 
 ```
 powershell -command "$a = Get-Clipboard;$a='"'+$a.replace('/','\')+'"'; explorer($a)"

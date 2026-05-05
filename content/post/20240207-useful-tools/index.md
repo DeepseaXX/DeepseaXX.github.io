@@ -58,7 +58,7 @@ tags:
 * [VSCode](https://code.visualstudio.com/)：多分いう必要のない、すべてのコーディングと文字ファイル処理に向いている
 * [CubePDF](https://www.cube-soft.jp/cubepdf/)：無料ソフト、PDF の編集、画像から PDF の変換
 * [Snipaste](https://www.snipaste.com/download.html)：スクリーンショットと編集
-*     無料で商用可能なのはバージョン1
+*     無料で商用可能なのはバージョン 1
 * [autohotkey](https://www.autohotkey.com/)：いくつかの動作をスクリプトとして作成、ショートキーより呼び出し可能、プログラミング能力必要
 * [Quickswitch](https://github.com/gepruts/QuickSwitch/tree/main)：Library の機能で、ポップアップ画面で素早くフォルダー間移動
 * [Everything](https://www.voidtools.com/forum/viewtopic.php?t=9787)：一瞬でファイル特定ができる

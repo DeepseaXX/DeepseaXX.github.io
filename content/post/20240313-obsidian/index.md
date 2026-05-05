@@ -70,7 +70,7 @@ OneNote 由于其在 Windows 系统上易于安装（仅仅是安装）的特性
 
 我看到的各种文章都表示，手机端的 Git 插件极其不稳定，建议手机端不要借助 git 来同步。而是推荐使用 iOS 端的，实现 git 操作的付费软件 Working Copy，链接 Obsidian 的本地文件夹与 Working Copy 克隆到本地的库，再借助 Working Copy 的手来进行 Push Pull 操作。嗯虽然 Working Copy 高昂的买断价格还是让人犹豫了一下，但考虑到他本身自带一个文本编辑器，除了联动 Obsidian 之外，对其他 repo 也能进行简单的操作，未来说不定用得上，我还是冻手了。
 
-顺便为了防止两端的插件设置冲突，建议分别使用单独的资源文件夹。例如主力机使用默认的.obsidian，手机端使用.obsidian.mobile 文件夹。
+顺便为了防止两端的插件设置冲突，建议分别使用单独的资源文件夹。例如主力机使用默认的。obsidian，手机端使用。obsidian.mobile 文件夹。
 
 ### 取代 flomo，Thino（Memos）
 
@@ -85,7 +85,7 @@ OneNote 由于其在 Windows 系统上易于安装（仅仅是安装）的特性
 
 ### Omnivore-obsidian
 
-[另一篇文章](https://deepseaxx.com/p/20240313-omnivore/)中介绍了我选择 Omnivore 的原因。当然如果能把 Omnivore 的存档页面拉取到的 Obsidian 库里当然是更好。总之 Omnivore 已经提供了插件，只需要下载启用简单配置，然后输入 Omnivore 生成的 API Key 就可以工作了。
+[另一篇文章](https://deepseaxx.com/p/20240313-omnivore/) 中介绍了我选择 Omnivore 的原因。当然如果能把 Omnivore 的存档页面拉取到的 Obsidian 库里当然是更好。总之 Omnivore 已经提供了插件，只需要下载启用简单配置，然后输入 Omnivore 生成的 API Key 就可以工作了。
 
 不过至今我还在思考，是否真的需要把别人写的东西拉进我自己的笔记库，还是单纯把他当作收藏和提醒比较好？
 
